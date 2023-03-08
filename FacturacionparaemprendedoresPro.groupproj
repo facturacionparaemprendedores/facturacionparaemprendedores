@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{ACDE6012-DFE6-48A0-9E9C-213B81BA77FE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="G:\dev\delphi2010\proyectos\facturacioncfdiCadoriselladoXE6Win3264v7_dxe6\facturacioncfdiCadoriselladoXE6Win64\cadoriselladoXE6Win64x.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="app_src\facturacionemprendedor.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="cadoriselladoXE6Win64x">
+        <MSBuild Projects="G:\dev\delphi2010\proyectos\facturacioncfdiCadoriselladoXE6Win3264v7_dxe6\facturacioncfdiCadoriselladoXE6Win64\cadoriselladoXE6Win64x.dproj"/>
+    </Target>
+    <Target Name="cadoriselladoXE6Win64x:Clean">
+        <MSBuild Projects="G:\dev\delphi2010\proyectos\facturacioncfdiCadoriselladoXE6Win3264v7_dxe6\facturacioncfdiCadoriselladoXE6Win64\cadoriselladoXE6Win64x.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cadoriselladoXE6Win64x:Make">
+        <MSBuild Projects="G:\dev\delphi2010\proyectos\facturacioncfdiCadoriselladoXE6Win3264v7_dxe6\facturacioncfdiCadoriselladoXE6Win64\cadoriselladoXE6Win64x.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="facturacionemprendedor">
+        <MSBuild Projects="app_src\facturacionemprendedor.dproj"/>
+    </Target>
+    <Target Name="facturacionemprendedor:Clean">
+        <MSBuild Projects="app_src\facturacionemprendedor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="facturacionemprendedor:Make">
+        <MSBuild Projects="app_src\facturacionemprendedor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="cadoriselladoXE6Win64x;facturacionemprendedor"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="cadoriselladoXE6Win64x:Clean;facturacionemprendedor:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="cadoriselladoXE6Win64x:Make;facturacionemprendedor:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

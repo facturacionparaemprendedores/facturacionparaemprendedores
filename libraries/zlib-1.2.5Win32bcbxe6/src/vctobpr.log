@@ -1,0 +1,10 @@
+Reading configurations from .\minigzip.dsp
+Finished reading configurations from .\minigzip.dsp
+ Converting C:\bcblibxmllibxslt32\zlib-1.2.5\bcb2010\dll\visualc6\zlib.dsw
+Generating project group file C:\bcblibxmllibxslt32\zlib-1.2.5\bcb2010\dll\visualc6\zlib.bpg
+zlib.bpg generated
+Done converting workspace file C:\bcblibxmllibxslt32\zlib-1.2.5\bcb2010\dll\visualc6\zlib.dsw
+ Converting .\minigzip.dsp
+Using configuration "minigzip - Win32 DLL Release"
+Warning: no conversion for compiler option: /FD
+Generating minigzip.bpr

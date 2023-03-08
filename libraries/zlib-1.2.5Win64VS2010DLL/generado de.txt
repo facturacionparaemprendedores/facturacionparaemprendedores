@@ -1,0 +1,1 @@
+C:\dev\vs2010libxmllibxslt64\zlib-1.2.5\contrib\vstudio\vc10\x64\ZlibDllReleaseWithoutAsm

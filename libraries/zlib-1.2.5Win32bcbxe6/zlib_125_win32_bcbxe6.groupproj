@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{66972588-488F-48D3-BA17-BAEE12EB604B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="src\zlib.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src_example\example.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src_minigzip\minigzip.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="zlib">
+        <MSBuild Projects="src\zlib.cbproj"/>
+    </Target>
+    <Target Name="zlib:Clean">
+        <MSBuild Projects="src\zlib.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="zlib:Make">
+        <MSBuild Projects="src\zlib.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="example">
+        <MSBuild Projects="src_example\example.cbproj"/>
+    </Target>
+    <Target Name="example:Clean">
+        <MSBuild Projects="src_example\example.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="example:Make">
+        <MSBuild Projects="src_example\example.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="minigzip">
+        <MSBuild Projects="src_minigzip\minigzip.cbproj"/>
+    </Target>
+    <Target Name="minigzip:Clean">
+        <MSBuild Projects="src_minigzip\minigzip.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="minigzip:Make">
+        <MSBuild Projects="src_minigzip\minigzip.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="zlib;example;minigzip"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="zlib:Clean;example:Clean;minigzip:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="zlib:Make;example:Make;minigzip:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

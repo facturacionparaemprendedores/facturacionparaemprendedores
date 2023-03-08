@@ -1,0 +1,28 @@
+
+02:00 p. m. 06/09/2021
+
+libxml2-2.9.0Win32Consolav2
+
+genera un binario lib win32 por consola de comandos. usando c++ builder
+
+los archivos que no compila por que segun terminan mas por ide
+son 
+schematron.c
+#define SCT_OLD_NS BAD_CAST "http://www.ascc.net/xml/schematron"
+
+#define XML_SCHEMATRON_NS BAD_CAST "http://purl.oclc.org/dsdl/schematron"
+
+xlink.c
+
+#define XLINK_NAMESPACE (BAD_CAST "http://www.w3.org/1999/xlink/namespace/")
+#define XHTML_NAMESPACE (BAD_CAST "http://www.w3.org/1999/xhtml/")
+
+
+pero por linea de comando si funcionan las compilaciones para windows 32
+
+entonces puede ser que hay que escapar el / o el ""
+
+
+de las urls 
+
+"http://www.w3.org/1999/xlink/namespace/"
