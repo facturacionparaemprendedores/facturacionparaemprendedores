@@ -197,91 +197,91 @@ object ClienteRegistraF: TClienteRegistraF
           Height = 15
           Caption = 'Campos con * , son obligatorios'
         end
-        object EditRazonSocial: TEdit
+        object EditClienteRazonSocial: TEdit
           Left = 125
           Top = 105
           Width = 313
           Height = 23
           TabOrder = 1
         end
-        object EditRFC: TEdit
+        object EditClienteRFC: TEdit
           Left = 125
           Top = 72
           Width = 257
           Height = 23
           TabOrder = 0
         end
-        object EditCalle: TEdit
+        object EditClienteCalle: TEdit
           Left = 125
           Top = 138
           Width = 273
           Height = 23
           TabOrder = 2
         end
-        object EditNumExt: TEdit
+        object EditClienteNumExt: TEdit
           Left = 125
           Top = 172
           Width = 121
           Height = 23
           TabOrder = 3
         end
-        object EditNumInt: TEdit
+        object EditClienteNumInt: TEdit
           Left = 125
           Top = 206
           Width = 121
           Height = 23
           TabOrder = 4
         end
-        object EditColonia: TEdit
+        object EditClienteColonia: TEdit
           Left = 125
           Top = 239
           Width = 196
           Height = 23
           TabOrder = 5
         end
-        object EditMunDel: TEdit
+        object EditClienteMun: TEdit
           Left = 125
           Top = 276
           Width = 196
           Height = 23
           TabOrder = 6
         end
-        object EditEstado: TEdit
+        object EditClienteEstado: TEdit
           Left = 125
           Top = 311
           Width = 196
           Height = 23
           TabOrder = 7
         end
-        object EditPais: TEdit
+        object EditClientePais: TEdit
           Left = 125
           Top = 345
           Width = 121
           Height = 23
           TabOrder = 8
         end
-        object EditCP: TEdit
+        object EditClienteCP: TEdit
           Left = 125
           Top = 380
           Width = 121
           Height = 23
           TabOrder = 9
         end
-        object EditTelefono: TEdit
+        object EditClienteTelefono: TEdit
           Left = 125
           Top = 413
           Width = 244
           Height = 23
           TabOrder = 10
         end
-        object EditCelular: TEdit
+        object EditClienteCelular: TEdit
           Left = 125
           Top = 446
           Width = 244
           Height = 23
           TabOrder = 11
         end
-        object Edit1Mail: TEdit
+        object EditClienteMail: TEdit
           Left = 125
           Top = 480
           Width = 244

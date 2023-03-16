@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Grids,
-  ClienteRegistraU, ClienteEditarU;
+  ClienteRegistraU, ClienteEditarU,
+  Global;
 
 type
   TClientsBuscaF = class(TForm)
@@ -26,7 +27,7 @@ type
     ButtonBuscarPorRazSoc: TButton;
     BuscarPorRFC: TButton;
     ButtonCancelar: TButton;
-    StringGrid1: TStringGrid;
+    StringGridClientes: TStringGrid;
     GroupBox1: TGroupBox;
     Label4: TLabel;
     Label3: TLabel;

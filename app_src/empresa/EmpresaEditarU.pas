@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Global;
 
 type
   TEmpresaEditarF = class(TForm)
@@ -15,6 +15,7 @@ type
     PanelMessage: TPanel;
     LabelMesage: TLabel;
     PanelMiddle: TPanel;
+    ButtonCancelar: TButton;
     GroupBox1: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
@@ -30,23 +31,23 @@ type
     Label12: TLabel;
     Label13: TLabel;
     Label14: TLabel;
-    EditRazonSocial: TEdit;
-    EditRFC: TEdit;
-    EditCalle: TEdit;
-    EditNumExt: TEdit;
-    EditNumInt: TEdit;
-    EditColonia: TEdit;
-    EditMunDel: TEdit;
-    EditEstado: TEdit;
-    EditPais: TEdit;
-    EditCP: TEdit;
-    EditTelefono: TEdit;
-    EditCelular: TEdit;
-    Edit1Mail: TEdit;
-    ButtonGuardar: TButton;
-    ButtonCancelar: TButton;
-    procedure ButtonGuardarClick(Sender: TObject);
+    EditEmpRazonSocial: TEdit;
+    EditEmpRFC: TEdit;
+    EditEmpCalle: TEdit;
+    EditEmpNumExt: TEdit;
+    EditEmpNumInt: TEdit;
+    EditEmpColonia: TEdit;
+    EditEmpMunDel: TEdit;
+    EditEmpEstado: TEdit;
+    EditEmpPais: TEdit;
+    EditEmpCP: TEdit;
+    EditEmpTelefono: TEdit;
+    EditEmpCelular: TEdit;
+    EditEmpMail: TEdit;
+    ButtonGuardarEmp: TButton;
     procedure ButtonCancelarClick(Sender: TObject);
+    procedure fill;
+    procedure ButtonGuardarEmpClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -65,9 +66,51 @@ begin
   Close;
 end;
 
-procedure TEmpresaEditarF.ButtonGuardarClick(Sender: TObject);
+procedure TEmpresaEditarF.ButtonGuardarEmpClick(Sender: TObject);
 begin
-///
+  Global.Emp.Rfc := EditEmpRFC.Text;
+  Global.Emp.Razonsocial := EditEmpRazonSocial.Text;
+  Global.Emp.Calle := EditEmpCalle.Text;
+  Global.Emp.Numero_Exterior := EditEmpNumExt.Text;
+  Global.Emp.Numero_Interior := EditEmpNumInt.Text;
+  Global.Emp.Colonia := EditEmpColonia.Text;
+  Global.Emp.Municipio := EditEmpMunDel.Text;
+  Global.Emp.Estado := EditEmpEstado.Text;
+  Global.Emp.Pais := EditEmpPais.Text;
+  Global.Emp.Cp := EditEmpCP.Text;
+  Global.Emp.Telefono := EditEmpTelefono.Text;
+  Global.Emp.Celular := EditEmpCelular.Text;
+  Global.Emp.Email := EditEmpMail.Text;
+
+  Global.Emp.Update();
+
+  Close;
+end;
+
+procedure TEmpresaEditarF.fill;
+begin
+
+  Global.Emp.Read;
+
+  EditEmpRFC.Text := Global.Emp.Rfc;
+  EditEmpRazonSocial.Text := Global.Emp.Razonsocial;
+  EditEmpCalle.Text := Global.Emp.Calle;
+  EditEmpNumExt.Text := Global.Emp.Numero_Exterior;
+  EditEmpNumInt.Text := Global.Emp.Numero_Interior;
+  EditEmpColonia.Text := Global.Emp.Colonia;
+  EditEmpMunDel.Text := Global.Emp.Municipio;
+  EditEmpEstado.Text := Global.Emp.Estado;
+  EditEmpPais.Text := Global.Emp.Pais;
+  EditEmpCP.Text := Global.Emp.Cp;
+  EditEmpTelefono.Text := Global.Emp.Telefono;
+  EditEmpCelular.Text := Global.Emp.Celular;
+  EditEmpMail.Text := Global.Emp.Email;
+
 end;
 
 end.
+
+
+
+
+

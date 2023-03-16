@@ -132,24 +132,9 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="main\FrmMainU.pas">
-            <Form>FrmMainF</Form>
+        <DCCReference Include="main\MainU.pas">
+            <Form>MainF</Form>
             <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="acerca\FrameAboutU.pas">
-            <Form>FrameAbout</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="billing\FrameBillingU.pas">
-            <Form>FrameBilling</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="billing\FrameFacturarU.pas">
-            <Form>FrameFacturar</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="classes\App.pas"/>
         <DCCReference Include="classes\CFDI.pas"/>
@@ -160,58 +145,18 @@
         <DCCReference Include="classes\DBC.pas"/>
         <DCCReference Include="classes\Item.pas"/>
         <DCCReference Include="classes\Nota.pas"/>
-        <DCCReference Include="classes\Pac.pas"/>
         <DCCReference Include="classes\Qry.pas"/>
         <DCCReference Include="classes\User.pas"/>
+        <DCCReference Include="shared\Global.pas"/>
+        <DCCReference Include="shared\SharedU.pas"/>
         <DCCReference Include="clientes\ClientsBuscaU.pas">
             <Form>ClientsBuscaF</Form>
             <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="clientes\FrameClientsU.pas">
-            <Form>FrameClients</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="config\FrameConfigU.pas">
-            <Form>FrameConfig</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="db\DMU.pas">
             <Form>DMF</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="empresa\EmpresaAdminU.pas">
-            <Form>EmpresaAdminF</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="empresa\FrameEmpresaAdminU.pas">
-            <Form>FrameEmpresaAdmin</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="items\FrameItemsU.pas">
-            <Form>FrameItems</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="pacs\FramePacsU.pas">
-            <Form>FramePacs</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="shared\Global.pas"/>
-        <DCCReference Include="shared\SharedU.pas"/>
-        <DCCReference Include="update\FrameUpdateU.pas">
-            <Form>FrameUpdate</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="impuestos\FrameImpuestosU.pas">
-            <Form>FrameImpuestosF</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="items\ItemsBuscaU.pas">
             <Form>ItemsBuscaF</Form>
@@ -245,11 +190,6 @@
             <Form>ItemRegistraF</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="certificados\FrameCertificadosU.pas">
-            <Form>FrameCertificados</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
         <DCCReference Include="certificados\CertificadoRegistraU.pas">
             <Form>CertificadoRegistraF</Form>
             <FormType>dfm</FormType>
@@ -266,6 +206,21 @@
             <Form>ImpuestoRegistraF</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="pacs\PacEditaU.pas">
+            <Form>PacEditaF</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="pacs\PacRegistraU.pas">
+            <Form>PacRegistraF</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="classes\Empresa.pas"/>
+        <DCCReference Include="pagos\PagoRegistraU.pas">
+            <Form>PagoRegistraF</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="classes\Pac.pas"/>
+        <DCCReference Include="classes\PacAdmin.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -1108,9 +1063,9 @@
                 <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="OSX64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="Android64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="OSXARM64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
-                <ProjectRoot Platform="Android64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Linux64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>

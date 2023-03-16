@@ -44,14 +44,12 @@ begin
 
 end;
 
-
-
-
-
 Destructor TQry.Destroy;
 begin
   Inherited Destroy;
-  Querry.Free
+  DB.Free;
+  Querry.Free;
+  Cfg.Free;
 end;
 
 end.

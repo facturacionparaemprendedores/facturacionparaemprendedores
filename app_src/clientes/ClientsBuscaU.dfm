@@ -170,7 +170,7 @@ object ClientsBuscaF: TClientsBuscaF
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
-      object StringGrid1: TStringGrid
+      object StringGridClientes: TStringGrid
         Left = 0
         Top = 0
         Width = 1257

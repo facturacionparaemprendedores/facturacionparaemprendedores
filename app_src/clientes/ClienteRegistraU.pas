@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Global;
 
 type
   TClienteRegistraF = class(TForm)
@@ -27,19 +27,19 @@ type
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
-    EditRazonSocial: TEdit;
-    EditRFC: TEdit;
-    EditCalle: TEdit;
-    EditNumExt: TEdit;
-    EditNumInt: TEdit;
-    EditColonia: TEdit;
-    EditMunDel: TEdit;
-    EditEstado: TEdit;
-    EditPais: TEdit;
-    EditCP: TEdit;
-    EditTelefono: TEdit;
-    EditCelular: TEdit;
-    Edit1Mail: TEdit;
+    EditClienteRazonSocial: TEdit;
+    EditClienteRFC: TEdit;
+    EditClienteCalle: TEdit;
+    EditClienteNumExt: TEdit;
+    EditClienteNumInt: TEdit;
+    EditClienteColonia: TEdit;
+    EditClienteMun: TEdit;
+    EditClienteEstado: TEdit;
+    EditClientePais: TEdit;
+    EditClienteCP: TEdit;
+    EditClienteTelefono: TEdit;
+    EditClienteCelular: TEdit;
+    EditClienteMail: TEdit;
     ButtonRegistrar: TButton;
     PanelMessages: TPanel;
     PanelMessage: TPanel;
@@ -67,7 +67,24 @@ end;
 
 procedure TClienteRegistraF.ButtonRegistrarClick(Sender: TObject);
 begin
-  ///
+  Global.Client.CreateNew(
+    EditClienteRazonSocial.Text,
+    EditClienteRFC.Text,
+    EditClienteCalle.Text,
+    EditClienteNumExt.Text,
+    EditClienteNumInt.Text,
+    EditClienteColonia.Text,
+    EditClienteMun.Text,
+    EditClienteEstado.Text,
+    EditClientePais.Text,
+    EditClienteCP.Text,
+    EditClienteTelefono.Text,
+    EditClienteCelular.Text,
+    EditClienteMail.Text
+
+  );
+
+  Close;
 end;
 
 end.

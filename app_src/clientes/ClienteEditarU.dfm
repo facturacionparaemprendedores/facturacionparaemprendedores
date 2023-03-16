@@ -22,10 +22,6 @@ object ClienteEditarF: TClienteEditarF
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = -1
-    ExplicitTop = -88
-    ExplicitWidth = 738
-    ExplicitHeight = 778
     object PanelBottom: TPanel
       Left = 0
       Top = 637
@@ -34,8 +30,6 @@ object ClienteEditarF: TClienteEditarF
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = 725
-      ExplicitWidth = 738
       object ButtonCancelar: TButton
         Left = 606
         Top = 6
@@ -54,7 +48,6 @@ object ClienteEditarF: TClienteEditarF
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 738
       object PanelMessages: TPanel
         Left = 0
         Top = 0
@@ -62,7 +55,6 @@ object ClienteEditarF: TClienteEditarF
         Height = 100
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 738
         DesignSize = (
           737
           100)
@@ -76,7 +68,6 @@ object ClienteEditarF: TClienteEditarF
           Color = 12615680
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 690
           object LabelMesage: TLabel
             Left = 16
             Top = 16
@@ -101,8 +92,6 @@ object ClienteEditarF: TClienteEditarF
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitWidth = 738
-      ExplicitHeight = 623
       object GroupBox1: TGroupBox
         Left = 24
         Top = 24
@@ -208,103 +197,104 @@ object ClienteEditarF: TClienteEditarF
           Height = 15
           Caption = 'Campos con * , son obligatorios'
         end
-        object EditRazonSocial: TEdit
-          Left = 125
-          Top = 105
-          Width = 313
-          Height = 23
-          TabOrder = 1
-        end
-        object EditRFC: TEdit
-          Left = 125
-          Top = 72
-          Width = 257
-          Height = 23
-          TabOrder = 0
-        end
-        object EditCalle: TEdit
-          Left = 125
-          Top = 138
-          Width = 273
-          Height = 23
-          TabOrder = 2
-        end
-        object EditNumExt: TEdit
-          Left = 125
-          Top = 172
-          Width = 121
-          Height = 23
-          TabOrder = 3
-        end
-        object EditNumInt: TEdit
-          Left = 125
-          Top = 206
-          Width = 121
-          Height = 23
-          TabOrder = 4
-        end
-        object EditColonia: TEdit
-          Left = 125
-          Top = 239
-          Width = 196
-          Height = 23
-          TabOrder = 5
-        end
-        object EditMunDel: TEdit
-          Left = 125
-          Top = 276
-          Width = 196
-          Height = 23
-          TabOrder = 6
-        end
-        object EditEstado: TEdit
-          Left = 125
-          Top = 311
-          Width = 196
-          Height = 23
-          TabOrder = 7
-        end
-        object EditPais: TEdit
-          Left = 125
-          Top = 345
-          Width = 121
-          Height = 23
-          TabOrder = 8
-        end
-        object EditCP: TEdit
-          Left = 125
-          Top = 380
-          Width = 121
-          Height = 23
-          TabOrder = 9
-        end
-        object EditTelefono: TEdit
-          Left = 125
-          Top = 413
-          Width = 244
-          Height = 23
-          TabOrder = 10
-        end
-        object EditCelular: TEdit
-          Left = 125
-          Top = 446
-          Width = 244
-          Height = 23
-          TabOrder = 11
-        end
-        object Edit1Mail: TEdit
-          Left = 125
-          Top = 480
-          Width = 244
-          Height = 23
-          TabOrder = 12
-        end
         object ButtonGuardar: TButton
           Left = 503
           Top = 63
           Width = 154
           Height = 42
           Caption = 'Guardar Cambios'
+          TabOrder = 0
+          OnClick = ButtonGuardarClick
+        end
+        object EditClienteRFC: TEdit
+          Left = 125
+          Top = 72
+          Width = 257
+          Height = 23
+          TabOrder = 1
+        end
+        object EditClienteRazonSocial: TEdit
+          Left = 125
+          Top = 105
+          Width = 313
+          Height = 23
+          TabOrder = 2
+        end
+        object EditClienteCalle: TEdit
+          Left = 125
+          Top = 138
+          Width = 273
+          Height = 23
+          TabOrder = 3
+        end
+        object EditClienteNumExt: TEdit
+          Left = 125
+          Top = 172
+          Width = 121
+          Height = 23
+          TabOrder = 4
+        end
+        object EditClienteNumInt: TEdit
+          Left = 125
+          Top = 206
+          Width = 121
+          Height = 23
+          TabOrder = 5
+        end
+        object EditClienteColonia: TEdit
+          Left = 125
+          Top = 239
+          Width = 196
+          Height = 23
+          TabOrder = 6
+        end
+        object EditClienteMun: TEdit
+          Left = 125
+          Top = 276
+          Width = 196
+          Height = 23
+          TabOrder = 7
+        end
+        object EditClienteEstado: TEdit
+          Left = 125
+          Top = 311
+          Width = 196
+          Height = 23
+          TabOrder = 8
+        end
+        object EditClientePais: TEdit
+          Left = 125
+          Top = 345
+          Width = 121
+          Height = 23
+          TabOrder = 9
+        end
+        object EditClienteCP: TEdit
+          Left = 125
+          Top = 380
+          Width = 121
+          Height = 23
+          TabOrder = 10
+        end
+        object EditClienteTelefono: TEdit
+          Left = 125
+          Top = 413
+          Width = 244
+          Height = 23
+          TabOrder = 11
+        end
+        object EditClienteCelular: TEdit
+          Left = 125
+          Top = 446
+          Width = 244
+          Height = 23
+          TabOrder = 12
+        end
+        object EditClienteMail: TEdit
+          Left = 125
+          Top = 480
+          Width = 244
+          Height = 23
           TabOrder = 13
         end
       end

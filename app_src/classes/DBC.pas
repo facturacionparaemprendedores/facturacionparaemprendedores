@@ -53,8 +53,6 @@ begin
 end;
 
 
-
-
 Constructor TDBC.Create;
 begin
   Inherited Create;

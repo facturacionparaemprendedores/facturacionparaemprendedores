@@ -4,7 +4,8 @@ interface
 
 uses
 
-App, Config, DBC, User, Client,Item;
+App, Config, DBC, User, Client,Item,
+Empresa, PacAdmin;
 
   procedure Initialize;// este es para inicializar la unidad es decir se llama siempre que se carge launidad
   procedure DeInitialize;
@@ -12,12 +13,16 @@ App, Config, DBC, User, Client,Item;
 var
 
   Initialized : Boolean = False;
+
   App : Tapp;
 
     User : TUser;
     Client : TClient;
     Item :TItem;
     //DB: TDBC;
+
+    Emp : TEmpresa;
+    PacAdmin : TPacAdmin;
 
 implementation
 
@@ -34,6 +39,9 @@ begin
   Client := TClient.Create;
   Item := TItem.Create;
 
+  Emp := TEmpresa.Create;
+  PacAdmin := TPacAdmin.Create;
+
   Initialized := True;
 end;
 
@@ -47,6 +55,8 @@ begin
   User.Free;
   Client.Free;
   Item.Free;
+  Emp.Free;
+  PacAdmin.Free;
 
 end;
 

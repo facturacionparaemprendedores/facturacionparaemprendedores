@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Global;
 
 type
   TClienteEditarF = class(TForm)
@@ -30,24 +30,23 @@ type
     Label12: TLabel;
     Label13: TLabel;
     Label14: TLabel;
-    EditRazonSocial: TEdit;
-    EditRFC: TEdit;
-    EditCalle: TEdit;
-    EditNumExt: TEdit;
-    EditNumInt: TEdit;
-    EditColonia: TEdit;
-    EditMunDel: TEdit;
-    EditEstado: TEdit;
-    EditPais: TEdit;
-    EditCP: TEdit;
-    EditTelefono: TEdit;
-    EditCelular: TEdit;
-    Edit1Mail: TEdit;
     ButtonGuardar: TButton;
     ButtonCancelar: TButton;
-    procedure ButtonRegistrarNuevoClienteClick(Sender: TObject);
-    procedure ButtonCerrarClick(Sender: TObject);
+    EditClienteRFC: TEdit;
+    EditClienteRazonSocial: TEdit;
+    EditClienteCalle: TEdit;
+    EditClienteNumExt: TEdit;
+    EditClienteNumInt: TEdit;
+    EditClienteColonia: TEdit;
+    EditClienteMun: TEdit;
+    EditClienteEstado: TEdit;
+    EditClientePais: TEdit;
+    EditClienteCP: TEdit;
+    EditClienteTelefono: TEdit;
+    EditClienteCelular: TEdit;
+    EditClienteMail: TEdit;
     procedure ButtonCancelarClick(Sender: TObject);
+    procedure ButtonGuardarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -66,14 +65,27 @@ begin
   Close;
 end;
 
-procedure TClienteEditarF.ButtonCerrarClick(Sender: TObject);
+procedure TClienteEditarF.ButtonGuardarClick(Sender: TObject);
 begin
-  Close;
-end;
+//todo este id es dinamico y corresponde a el cliente seleccionado
+  Global.Client.Update( 1,
+    EditClienteRazonSocial.Text,
+    EditClienteRFC.Text,
+    EditClienteCalle.Text,
+    EditClienteNumExt.Text,
+    EditClienteNumInt.Text,
+    EditClienteColonia.Text,
+    EditClienteMun.Text,
+    EditClienteEstado.Text,
+    EditClientePais.Text,
+    EditClienteCP.Text,
+    EditClienteTelefono.Text,
+    EditClienteCelular.Text,
+    EditClienteMail.Text
 
-procedure TClienteEditarF.ButtonRegistrarNuevoClienteClick(Sender: TObject);
-begin
-  ///
+  );
+
+  Close;
 end;
 
 end.
