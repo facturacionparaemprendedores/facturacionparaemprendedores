@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{0418EFE3-361B-4D34-B423-6A195F824E64}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="app_src\facturacionemprendedor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\..\contabilidadelectronica\cfdiaexcel\src\cfdiaexcel.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="facturacionemprendedor">
+        <MSBuild Projects="app_src\facturacionemprendedor.dproj"/>
+    </Target>
+    <Target Name="facturacionemprendedor:Clean">
+        <MSBuild Projects="app_src\facturacionemprendedor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="facturacionemprendedor:Make">
+        <MSBuild Projects="app_src\facturacionemprendedor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="cfdiaexcel">
+        <MSBuild Projects="..\..\..\..\contabilidadelectronica\cfdiaexcel\src\cfdiaexcel.dproj"/>
+    </Target>
+    <Target Name="cfdiaexcel:Clean">
+        <MSBuild Projects="..\..\..\..\contabilidadelectronica\cfdiaexcel\src\cfdiaexcel.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cfdiaexcel:Make">
+        <MSBuild Projects="..\..\..\..\contabilidadelectronica\cfdiaexcel\src\cfdiaexcel.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="facturacionemprendedor;cfdiaexcel"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="facturacionemprendedor:Clean;cfdiaexcel:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="facturacionemprendedor:Make;cfdiaexcel:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

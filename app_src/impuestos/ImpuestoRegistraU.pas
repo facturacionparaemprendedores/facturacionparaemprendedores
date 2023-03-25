@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.StdCtrls, Vcl.ExtCtrls, Global;
 
 type
   TImpuestoRegistraF = class(TForm)
@@ -12,14 +12,21 @@ type
     PanelTop: TPanel;
     PanelMiddle: TPanel;
     PanelBottom: TPanel;
-    GroupBox1: TGroupBox;
+    GroupBoxImpuestos: TGroupBox;
     Label4: TLabel;
     Label3: TLabel;
     BuscarRegistra: TButton;
-    EditRazonSocial: TEdit;
-    EditRFC: TEdit;
+    EditImpuestoImpuesto: TEdit;
+    EditImpuestoBase: TEdit;
     ButtonCancelar: TButton;
+    Label1: TLabel;
+    EditImpuestoTipoOFactor: TEdit;
+    Label2: TLabel;
+    EditImpuestoTasaOCuota: TEdit;
+    Label5: TLabel;
+    EditImpuestoImporte: TEdit;
     procedure ButtonCancelarClick(Sender: TObject);
+    procedure BuscarRegistraClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,6 +39,15 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TImpuestoRegistraF.BuscarRegistraClick(Sender: TObject);
+begin
+  Global.ImpuestosAdmin.New(EditImpuestoBase.Text, EditImpuestoImpuesto.Text,
+    EditImpuestoTipoOFactor.Text, StrToFloat(EditImpuestoTasaOCuota.Text),
+    StrToFloat(EditImpuestoImporte.Text));
+
+  Close;
+end;
 
 procedure TImpuestoRegistraF.ButtonCancelarClick(Sender: TObject);
 begin

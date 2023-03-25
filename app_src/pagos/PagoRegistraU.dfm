@@ -20,10 +20,6 @@ object PagoRegistraF: TPagoRegistraF
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = -133
-    ExplicitTop = -267
-    ExplicitWidth = 751
-    ExplicitHeight = 691
     object PanelBottom: TPanel
       Left = 0
       Top = 485
@@ -32,8 +28,6 @@ object PagoRegistraF: TPagoRegistraF
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = 638
-      ExplicitWidth = 751
       object ButtonCancelar: TButton
         Left = 646
         Top = 6
@@ -52,7 +46,6 @@ object PagoRegistraF: TPagoRegistraF
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 751
       object PanelMessages: TPanel
         Left = 0
         Top = 0
@@ -61,7 +54,6 @@ object PagoRegistraF: TPagoRegistraF
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 751
         DesignSize = (
           780
           100)
@@ -75,7 +67,6 @@ object PagoRegistraF: TPagoRegistraF
           Color = 12615680
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 703
           object LabelMesage: TLabel
             Left = 16
             Top = 16
@@ -100,8 +91,6 @@ object PagoRegistraF: TPagoRegistraF
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitWidth = 751
-      ExplicitHeight = 517
       object PanelBusca: TPanel
         Left = 0
         Top = 0
@@ -110,7 +99,6 @@ object PagoRegistraF: TPagoRegistraF
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 751
         object Label1: TLabel
           Left = 24
           Top = 47
@@ -161,9 +149,9 @@ object PagoRegistraF: TPagoRegistraF
           TabOrder = 1
         end
         object ButtonEliminarPago: TButton
-          Left = 630
+          Left = 608
           Top = 72
-          Width = 75
+          Width = 97
           Height = 25
           Caption = 'Eliminar Pago'
           TabOrder = 2

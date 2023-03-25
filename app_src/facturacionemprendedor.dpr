@@ -14,7 +14,6 @@ uses
   Nota in 'classes\Nota.pas',
   Qry in 'classes\Qry.pas',
   User in 'classes\User.pas',
-  Global in 'shared\Global.pas',
   SharedU in 'shared\SharedU.pas',
   ClientsBuscaU in 'clientes\ClientsBuscaU.pas' {ClientsBuscaF},
   DMU in 'db\DMU.pas' {DMF: TDataModule},
@@ -35,7 +34,27 @@ uses
   Empresa in 'classes\Empresa.pas',
   PagoRegistraU in 'pagos\PagoRegistraU.pas' {PagoRegistraF},
   Pac in 'classes\Pac.pas',
-  PacAdmin in 'classes\PacAdmin.pas';
+  PacAdmin in 'classes\PacAdmin.pas',
+  SerieRegistraU in 'series\SerieRegistraU.pas' {SerieRegistraF},
+  SerieEditaU in 'series\SerieEditaU.pas' {SerieEditaF},
+  TimbreRegistraU in 'timbres\TimbreRegistraU.pas' {TimbreRegistraF},
+  TimbreEditaU in 'timbres\TimbreEditaU.pas' {TimbreEditaF},
+  FormaPagoEditaU in 'formadepago\FormaPagoEditaU.pas' {FormaPagoEditaF},
+  FormaPagoRegistraU in 'formadepago\FormaPagoRegistraU.pas' {FormaPagoRegistraF},
+  MetodoPagoRegistraU in 'metododepago\MetodoPagoRegistraU.pas' {MetodoPagoRegistraF},
+  MetodoPagoEditaU in 'metododepago\MetodoPagoEditaU.pas' {MetodoPagoEditaF},
+  LugarExpedicionEditaU in 'lugarexpedicion\LugarExpedicionEditaU.pas' {LugarExpedicionEditaF},
+  LugarExpedicionRegistraU in 'lugarexpedicion\LugarExpedicionRegistraU.pas' {LugarExpedicionRegistraF},
+  MonedaRegistraU in 'moneda\MonedaRegistraU.pas' {MonedaRegistraF},
+  MonedaEditaU in 'moneda\MonedaEditaU.pas' {MonedaEditaF},
+  CertAdmin in 'classes\CertAdmin.pas',
+  ImpuestosAdmin in 'classes\ImpuestosAdmin.pas',
+  Global in 'shared\Global.pas',
+  MetodoPagoAdmin in 'classes\MetodoPagoAdmin.pas',
+  FormaPagoAdmin in 'classes\FormaPagoAdmin.pas',
+  SeriesAdmin in 'classes\SeriesAdmin.pas',
+  LugarEexpAdmin in 'classes\LugarEexpAdmin.pas',
+  MonedaAdmin in 'classes\MonedaAdmin.pas';
 
 {$R *.res}
 
@@ -62,10 +81,20 @@ begin
   Application.CreateForm(TImpuestoEditaF, ImpuestoEditaF);
   Application.CreateForm(TImpuestoRegistraF, ImpuestoRegistraF);
   Application.CreateForm(TPacEditaF, PacEditaF);
-  Application.CreateForm(TPacEditaF, PacEditaF);
-  Application.CreateForm(TPacRegistraF, PacRegistraF);
   Application.CreateForm(TPacRegistraF, PacRegistraF);
   Application.CreateForm(TPagoRegistraF, PagoRegistraF);
+  Application.CreateForm(TSerieRegistraF, SerieRegistraF);
+  Application.CreateForm(TSerieEditaF, SerieEditaF);
+  Application.CreateForm(TTimbreRegistraF, TimbreRegistraF);
+  Application.CreateForm(TTimbreEditaF, TimbreEditaF);
+  Application.CreateForm(TFormaPagoEditaF, FormaPagoEditaF);
+  Application.CreateForm(TFormaPagoRegistraF, FormaPagoRegistraF);
+  Application.CreateForm(TMetodoPagoRegistraF, MetodoPagoRegistraF);
+  Application.CreateForm(TMetodoPagoEditaF, MetodoPagoEditaF);
+  Application.CreateForm(TLugarExpedicionEditaF, LugarExpedicionEditaF);
+  Application.CreateForm(TLugarExpedicionRegistraF, LugarExpedicionRegistraF);
+  Application.CreateForm(TMonedaRegistraF, MonedaRegistraF);
+  Application.CreateForm(TMonedaEditaF, MonedaEditaF);
   Application.Run;
 end.
 
