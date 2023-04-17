@@ -41,7 +41,7 @@ procedure TMonedaAdmin.New(Descripcion: string; Uso: string; Tipo_Especial: stri
 begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
-  Qry.Querry.SQL.Add('INSERT INTO LUGAR_EXPEDICION ');
+  Qry.Querry.SQL.Add('INSERT INTO MONEDA ');
   Qry.Querry.SQL.Add('(');
   Qry.Querry.SQL.Add(' DESCRIPCION, USO, TIPO_ESPECIAL, ACTIVO, ID_EMP');
   Qry.Querry.SQL.Add(')');
@@ -64,7 +64,7 @@ procedure TMonedaAdmin.Update(Descripcion: string; Uso: string; Tipo_Especial: s
 begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
-  Qry.Querry.SQL.Add('UPDATE LUGAR_EXPEDICION ');
+  Qry.Querry.SQL.Add('UPDATE MONEDA ');
   Qry.Querry.SQL.Add('SET ');
   Qry.Querry.SQL.Add(' DESCRIPCION = :DESCRIPCION, USO = :USO, TIPO_ESPECIAL =:TIPO_ESPECIAL, ACTIVO = :ACTIVO, ID_EMP = :ID_EMP');
   Qry.Querry.SQL.Add(' WHERE ID = :ID');
@@ -85,7 +85,7 @@ procedure TMonedaAdmin.Delete;
 begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
-  Qry.Querry.SQL.Add('DELETE FROM LUGAR_EXPEDICION ');
+  Qry.Querry.SQL.Add('DELETE FROM MONEDA ');
   Qry.Querry.SQL.Add(' WHERE ID = :ID');
 
   Qry.Querry.ParamByName('ID').AsInteger := Id;
@@ -98,7 +98,7 @@ begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
   Qry.Querry.SQL.Add('SELECT ID, DESCRIPCION, USO, TIPO_ESPECIAL, ACTIVO, ID_EMP ');
-  Qry.Querry.SQL.Add('FROM LUGAR_EXPEDICION ');
+  Qry.Querry.SQL.Add('FROM MONEDA ');
   Qry.Querry.Open();
 
 end;
@@ -108,7 +108,7 @@ begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
   Qry.Querry.SQL.Add('SELECT ID, DESCRIPCION, USO, TIPO_ESPECIAL, ACTIVO, ID_EMP ');
-  Qry.Querry.SQL.Add(' FROM LUGAR_EXPEDICION ');
+  Qry.Querry.SQL.Add(' FROM MONEDA ');
   Qry.Querry.SQL.Add(' WHERE ID = :ID');
 
   Qry.Querry.ParamByName('ID').AsInteger := Id;
@@ -129,7 +129,7 @@ begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
   Qry.Querry.SQL.Add('SELECT ID, DESCRIPCION, USO, TIPO_ESPECIAL, ACTIVO, ID_EMP  ');
-  Qry.Querry.SQL.Add(' FROM LUGAR_EXPEDICION ');
+  Qry.Querry.SQL.Add(' FROM MONEDA ');
   Qry.Querry.SQL.Add(' WHERE DESCRIPCION LIKE :DESCRIPCION' );
 
   Qry.Querry.ParamByName('DESCRIPCION').AsString :=  '%' + Descripcion +'%';

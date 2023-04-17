@@ -48,19 +48,19 @@ end;
 
 procedure TLugarExpedicionEditaF.ButtonGuardaClick(Sender: TObject);
 begin
-  Global.LugarExp.Update(EditDesc.Text, EditUso.Text, EditTipoEsp.Text,  CheckBoxLugExpActivo.Checked);
+  Global.LugarExpAdmin.Update(EditDesc.Text, EditUso.Text, EditTipoEsp.Text,  CheckBoxLugExpActivo.Checked);
   Close;
 end;
 
 
 procedure TLugarExpedicionEditaF.Load;
 begin
-  Global.LugarExp.GetByID(Global.LugarExp.Id);
+  Global.LugarExpAdmin.GetByID(Global.LugarExpAdmin.Id);
 
-  EditDesc.Text := Global.LugarExp.Descripcion;
-  EditUso.Text := Global.LugarExp.Uso;
-  EditTipoEsp.Text := Global.LugarExp.Tipo_Especial;
-  CheckBoxLugExpActivo.Checked := Global.LugarExp.Activo;
+  EditDesc.Text := Global.LugarExpAdmin.Descripcion;
+  EditUso.Text := Global.LugarExpAdmin.Uso;
+  EditTipoEsp.Text := Global.LugarExpAdmin.Tipo_Especial;
+  CheckBoxLugExpActivo.Checked := Global.LugarExpAdmin.Activo;
 end;
 
 end.

@@ -332,16 +332,14 @@ type
     Panel85: TPanel;
     Panel86: TPanel;
     Panel87: TPanel;
-    Label72: TLabel;
     Label73: TLabel;
-    Edit13: TEdit;
-    Edit14: TEdit;
-    Button18: TButton;
+    EditTimbresPorPAC: TEdit;
+    ButtonTimbresPorPAC: TButton;
     GroupBox15: TGroupBox;
     Label74: TLabel;
     Label75: TLabel;
-    Label76: TLabel;
-    Label77: TLabel;
+    LabelTimbresPAC: TLabel;
+    LabelTimbresComprados: TLabel;
     Panel88: TPanel;
     ButtonTimbreNuevo: TButton;
     ButtonTimbreEdita: TButton;
@@ -374,17 +372,9 @@ type
     Panel99: TPanel;
     Panel100: TPanel;
     Panel101: TPanel;
-    Label84: TLabel;
     Label85: TLabel;
-    Edit17: TEdit;
-    Edit18: TEdit;
-    Button14: TButton;
+    Edit1MonedaDesc: TEdit;
     Button15: TButton;
-    GroupBox17: TGroupBox;
-    Label86: TLabel;
-    Label87: TLabel;
-    Label88: TLabel;
-    Label89: TLabel;
     Panel102: TPanel;
     ButtonMonedaNuevo: TButton;
     ButtonMonedaEdita: TButton;
@@ -403,6 +393,25 @@ type
     Label52: TLabel;
     Label55: TLabel;
     CheckBoxLugExpActivo: TCheckBox;
+    GroupBox13: TGroupBox;
+    Label41: TLabel;
+    LabelMonedaDescripcion: TLabel;
+    LabelMonedaUso: TLabel;
+    Label57: TLabel;
+    LabelMonedaTipoEspecial: TLabel;
+    Label61: TLabel;
+    Label62: TLabel;
+    CheckBoxMonedaActivo: TCheckBox;
+    Label47: TLabel;
+    LabelTimbresUsados: TLabel;
+    Label58: TLabel;
+    LabelTimbresRestantes: TLabel;
+    Label56: TLabel;
+    LabelTimbresAvisar: TLabel;
+    Label63: TLabel;
+    LabelProdPrecio: TLabel;
+    LabelProdUnidad: TLabel;
+    Unidad: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure PanelWorkTopButtonClick(Sender: TObject);
     procedure ButtonLoginClick(Sender: TObject);
@@ -449,6 +458,8 @@ type
     procedure GetAllFormasPagos;
     procedure GetAllSeries;
     procedure GetAllLugExp;
+    procedure GetAllMonedas;
+    procedure GetAllTimbres;
     procedure ButtonPacNuevoClick(Sender: TObject);
     procedure ButtonPacEditarClick(Sender: TObject);
     procedure GridPacsClick(Sender: TObject);
@@ -490,6 +501,12 @@ type
     procedure ButtonLugarExpedicionEliminaClick(Sender: TObject);
     procedure ButtonBusarLuarExpClick(Sender: TObject);
     procedure GridLugarExpedClick(Sender: TObject);
+    procedure ButtonMonedaEliminaClick(Sender: TObject);
+    procedure Button15Click(Sender: TObject);
+    procedure GridMonedaClick(Sender: TObject);
+    procedure ButtonTimbresPorPACClick(Sender: TObject);
+    procedure GridTimbresClick(Sender: TObject);
+    procedure ButtonTimbreEliminaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -627,6 +644,118 @@ begin
   end;
 end;
 
+procedure TMainF.Button15Click(Sender: TObject);
+var
+  iNumero : Integer;
+  i: Integer;
+begin
+   iNumero := 0;
+
+  GridMoneda.ColCount := 6;
+                       //columna
+  GridMoneda.ColWidths[0] := 30;
+  GridMoneda.ColWidths[1] := 20;
+  GridMoneda.ColWidths[2] := 300;
+  GridMoneda.ColWidths[3] := 300;
+  GridMoneda.ColWidths[4] := 300;
+  GridMoneda.ColWidths[5] := 100;
+
+                 //columna  , fila
+  GridMoneda.Cells[0,0] := 'Num';
+  GridMoneda.Cells[1,0] := 'ID';
+  GridMoneda.Cells[2,0] := 'Descripicion';
+  GridMoneda.Cells[3,0] := 'Uso';
+  GridMoneda.Cells[3,0] := 'Tipo Especial';
+  GridMoneda.Cells[4,0] := 'Activo';
+
+  Global.MonedaAdmin.GetByDescripcion(Edit1MonedaDesc.Text);
+
+  for i := 0 to Global.MonedaAdmin.Qry.Querry.RecordCount -1 do
+  begin
+    Inc(iNumero);
+    GridMoneda.RowCount := iNumero + 1;
+    GridMoneda.Cells[0, iNumero] := IntToStr(iNumero);
+    GridMoneda.Cells[1, iNumero] := Global.MonedaAdmin.Qry.Querry.FieldByName('ID').AsString;
+    GridMoneda.Cells[2, iNumero] := Global.MonedaAdmin.Qry.Querry.FieldByName('DESCRIPCION').AsString;
+    GridMoneda.Cells[3, iNumero] := Global.MonedaAdmin.Qry.Querry.FieldByName('USO').AsString;
+    GridMoneda.Cells[4, iNumero] := Global.MonedaAdmin.Qry.Querry.FieldByName('TIPO_ESPECIAL').AsString;
+
+    if ((Global.MonedaAdmin.Qry.Querry.FieldByName('ACTIVO').AsBoolean) = True) then
+    begin
+      GridMoneda.Cells[5, iNumero] :=    'SI';
+    end
+    else
+    begin
+      GridMoneda.Cells[5, iNumero] := '';
+    end;
+
+
+    Global.MonedaAdmin.Qry.Querry.Next;
+  end;
+
+end;
+
+procedure TMainF.ButtonTimbresPorPACClick(Sender: TObject);
+var
+  iNumero : Integer;
+  i: Integer;
+begin
+  iNumero := 0;
+
+  GridTimbres.ColCount := 10;
+                       //columna
+  GridTimbres.ColWidths[0] := 30;
+  GridTimbres.ColWidths[1] := 20;
+  GridTimbres.ColWidths[2] := 100;
+  GridTimbres.ColWidths[3] := 100;
+  GridTimbres.ColWidths[4] := 100;
+  GridTimbres.ColWidths[5] := 100;
+  GridTimbres.ColWidths[6] := 100;
+  GridTimbres.ColWidths[7] := 100;
+  GridTimbres.ColWidths[8] := 100;
+
+                 //columna  , fila
+  GridTimbres.Cells[0,0] := 'Num';
+  GridTimbres.Cells[1,0] := 'ID';
+  GridTimbres.Cells[2,0] := 'ID_PAC';
+  GridTimbres.Cells[3,0] := 'PAC';
+  GridTimbres.Cells[4,0] := 'Comprados';
+  GridTimbres.Cells[5,0] := 'Usados';
+  GridTimbres.Cells[6,0] := 'Restantes';
+  GridTimbres.Cells[7,0] := 'Avisar';
+  GridTimbres.Cells[8,0] := 'Activo';
+
+  Global.TimbresAdmin.GetByPAC(EditTimbresPorPAC.Text);
+
+  for i := 0 to Global.TimbresAdmin.Qry.Querry.RecordCount -1 do
+  begin
+    Inc(iNumero);
+    GridTimbres.RowCount := iNumero + 1;
+    GridTimbres.Cells[0, iNumero] := IntToStr(iNumero);
+    GridTimbres.Cells[1, iNumero] := Global.TimbresAdmin.Qry.Querry.FieldByName('ID').AsString;
+    GridTimbres.Cells[2, iNumero] := Global.TimbresAdmin.Qry.Querry.FieldByName('ID_PAC').AsString;
+    GridTimbres.Cells[3, iNumero] := Global.TimbresAdmin.Qry.Querry.FieldByName('PAC').AsString;
+
+    GridTimbres.Cells[4, iNumero] := IntToStr(Global.TimbresAdmin.Qry.Querry.FieldByName('COMPRADOS').AsInteger);
+    GridTimbres.Cells[5, iNumero] := IntToStr(Global.TimbresAdmin.Qry.Querry.FieldByName('USADOS').AsInteger);
+    GridTimbres.Cells[6, iNumero] := IntToStr(Global.TimbresAdmin.Qry.Querry.FieldByName('RESTANTES').AsInteger);
+
+    GridTimbres.Cells[7, iNumero] := Global.TimbresAdmin.Qry.Querry.FieldByName('AVISAR').AsString;
+
+    if ((Global.TimbresAdmin.Qry.Querry.FieldByName('ACTIVO').AsBoolean) = True) then
+    begin
+      GridTimbres.Cells[8, iNumero] :=    'SI';
+    end
+    else
+    begin
+      GridTimbres.Cells[8, iNumero] := '';
+    end;
+
+
+    Global.TimbresAdmin.Qry.Querry.Next;
+  end;
+end;
+
 procedure TMainF.ButtonBusarLuarExpClick(Sender: TObject);
 var
   iNumero : Integer;
@@ -651,19 +780,19 @@ begin
   GridLugarExped.Cells[3,0] := 'Tipo Especial';
   GridLugarExped.Cells[4,0] := 'Activo';
 
-  Global.LugarExp.GetByDescripcion(EditLugExp.Text);
+  Global.LugarExpAdmin.GetByDescripcion(EditLugExp.Text);
 
-  for i := 0 to Global.LugarExp.Qry.Querry.RecordCount -1 do
+  for i := 0 to Global.LugarExpAdmin.Qry.Querry.RecordCount -1 do
   begin
     Inc(iNumero);
     GridLugarExped.RowCount := iNumero + 1;
     GridLugarExped.Cells[0, iNumero] := IntToStr(iNumero);
-    GridLugarExped.Cells[1, iNumero] := Global.LugarExp.Qry.Querry.FieldByName('ID').AsString;
-    GridLugarExped.Cells[2, iNumero] := Global.LugarExp.Qry.Querry.FieldByName('DESCRIPCION').AsString;
-    GridLugarExped.Cells[3, iNumero] := Global.LugarExp.Qry.Querry.FieldByName('USO').AsString;
-    GridLugarExped.Cells[4, iNumero] := Global.LugarExp.Qry.Querry.FieldByName('TIPO_ESPECIAL').AsString;
+    GridLugarExped.Cells[1, iNumero] := Global.LugarExpAdmin.Qry.Querry.FieldByName('ID').AsString;
+    GridLugarExped.Cells[2, iNumero] := Global.LugarExpAdmin.Qry.Querry.FieldByName('DESCRIPCION').AsString;
+    GridLugarExped.Cells[3, iNumero] := Global.LugarExpAdmin.Qry.Querry.FieldByName('USO').AsString;
+    GridLugarExped.Cells[4, iNumero] := Global.LugarExpAdmin.Qry.Querry.FieldByName('TIPO_ESPECIAL').AsString;
 
-    if ((Global.LugarExp.Qry.Querry.FieldByName('ACTIVO').AsBoolean) = True) then
+    if ((Global.LugarExpAdmin.Qry.Querry.FieldByName('ACTIVO').AsBoolean) = True) then
     begin
       GridLugarExped.Cells[5, iNumero] :=    'SI';
     end
@@ -673,7 +802,7 @@ begin
     end;
 
 
-    Global.LugarExp.Qry.Querry.Next;
+    Global.LugarExpAdmin.Qry.Querry.Next;
   end;
 
 
@@ -1136,19 +1265,19 @@ begin
   GridLugarExped.Cells[3,0] := 'Tipo Especial';
   GridLugarExped.Cells[4,0] := 'Activo';
 
-  Global.LugarExp.GetByDescripcion(EditLugExp.Text);
+  Global.LugarExpAdmin.GetByDescripcion(EditLugExp.Text);
 
-  for i := 0 to Global.LugarExp.Qry.Querry.RecordCount -1 do
+  for i := 0 to Global.LugarExpAdmin.Qry.Querry.RecordCount -1 do
   begin
     Inc(iNumero);
     GridLugarExped.RowCount := iNumero + 1;
     GridLugarExped.Cells[0, iNumero] := IntToStr(iNumero);
-    GridLugarExped.Cells[1, iNumero] := Global.LugarExp.Qry.Querry.FieldByName('ID').AsString;
-    GridLugarExped.Cells[2, iNumero] := Global.LugarExp.Qry.Querry.FieldByName('DESCRIPCION').AsString;
-    GridLugarExped.Cells[3, iNumero] := Global.LugarExp.Qry.Querry.FieldByName('USO').AsString;
-    GridLugarExped.Cells[4, iNumero] := Global.LugarExp.Qry.Querry.FieldByName('TIPO_ESPECIAL').AsString;
+    GridLugarExped.Cells[1, iNumero] := Global.LugarExpAdmin.Qry.Querry.FieldByName('ID').AsString;
+    GridLugarExped.Cells[2, iNumero] := Global.LugarExpAdmin.Qry.Querry.FieldByName('DESCRIPCION').AsString;
+    GridLugarExped.Cells[3, iNumero] := Global.LugarExpAdmin.Qry.Querry.FieldByName('USO').AsString;
+    GridLugarExped.Cells[4, iNumero] := Global.LugarExpAdmin.Qry.Querry.FieldByName('TIPO_ESPECIAL').AsString;
 
-    if ((Global.LugarExp.Qry.Querry.FieldByName('ACTIVO').AsBoolean) = True) then
+    if ((Global.LugarExpAdmin.Qry.Querry.FieldByName('ACTIVO').AsBoolean) = True) then
     begin
       GridLugarExped.Cells[5, iNumero] :=    'SI';
     end
@@ -1158,10 +1287,124 @@ begin
     end;
 
 
-    Global.LugarExp.Qry.Querry.Next;
+    Global.LugarExpAdmin.Qry.Querry.Next;
   end;
 
 
+end;
+
+
+procedure TMainF.GetAllMonedas;
+var
+  iNumero : Integer;
+  i: Integer;
+begin
+   iNumero := 0;
+
+  GridMoneda.ColCount := 6;
+                       //columna
+  GridMoneda.ColWidths[0] := 30;
+  GridMoneda.ColWidths[1] := 20;
+  GridMoneda.ColWidths[2] := 300;
+  GridMoneda.ColWidths[3] := 300;
+  GridMoneda.ColWidths[4] := 300;
+  GridMoneda.ColWidths[5] := 100;
+
+                 //columna  , fila
+  GridMoneda.Cells[0,0] := 'Num';
+  GridMoneda.Cells[1,0] := 'ID';
+  GridMoneda.Cells[2,0] := 'Descripicion';
+  GridMoneda.Cells[3,0] := 'Uso';
+  GridMoneda.Cells[3,0] := 'Tipo Especial';
+  GridMoneda.Cells[4,0] := 'Activo';
+
+  Global.MonedaAdmin.GetAll;
+
+  for i := 0 to Global.MonedaAdmin.Qry.Querry.RecordCount -1 do
+  begin
+    Inc(iNumero);
+    GridMoneda.RowCount := iNumero + 1;
+    GridMoneda.Cells[0, iNumero] := IntToStr(iNumero);
+    GridMoneda.Cells[1, iNumero] := Global.MonedaAdmin.Qry.Querry.FieldByName('ID').AsString;
+    GridMoneda.Cells[2, iNumero] := Global.MonedaAdmin.Qry.Querry.FieldByName('DESCRIPCION').AsString;
+    GridMoneda.Cells[3, iNumero] := Global.MonedaAdmin.Qry.Querry.FieldByName('USO').AsString;
+    GridMoneda.Cells[4, iNumero] := Global.MonedaAdmin.Qry.Querry.FieldByName('TIPO_ESPECIAL').AsString;
+
+    if ((Global.MonedaAdmin.Qry.Querry.FieldByName('ACTIVO').AsBoolean) = True) then
+    begin
+      GridMoneda.Cells[5, iNumero] :=    'SI';
+    end
+    else
+    begin
+      GridMoneda.Cells[5, iNumero] := '';
+    end;
+
+
+    Global.MonedaAdmin.Qry.Querry.Next;
+  end;
+end;
+
+
+procedure TMainF.GetAllTimbres;
+var
+  iNumero : Integer;
+  i: Integer;
+begin
+  iNumero := 0;
+
+  GridTimbres.ColCount := 10;
+                       //columna
+  GridTimbres.ColWidths[0] := 30;
+  GridTimbres.ColWidths[1] := 20;
+  GridTimbres.ColWidths[2] := 100;
+  GridTimbres.ColWidths[3] := 100;
+  GridTimbres.ColWidths[4] := 100;
+  GridTimbres.ColWidths[5] := 100;
+  GridTimbres.ColWidths[6] := 100;
+  GridTimbres.ColWidths[7] := 100;
+  GridTimbres.ColWidths[8] := 100;
+
+                 //columna  , fila
+  GridTimbres.Cells[0,0] := 'Num';
+  GridTimbres.Cells[1,0] := 'ID';
+  GridTimbres.Cells[2,0] := 'ID_PAC';
+  GridTimbres.Cells[3,0] := 'PAC';
+  GridTimbres.Cells[4,0] := 'Comprados';
+  GridTimbres.Cells[5,0] := 'Usados';
+  GridTimbres.Cells[6,0] := 'Restantes';
+  GridTimbres.Cells[7,0] := 'Avisar';
+  GridTimbres.Cells[8,0] := 'Activo';
+
+  Global.TimbresAdmin.GetAll;
+
+  for i := 0 to Global.TimbresAdmin.Qry.Querry.RecordCount -1 do
+  begin
+    Inc(iNumero);
+    GridTimbres.RowCount := iNumero + 1;
+    GridTimbres.Cells[0, iNumero] := IntToStr(iNumero);
+    GridTimbres.Cells[1, iNumero] := Global.TimbresAdmin.Qry.Querry.FieldByName('ID').AsString;
+    GridTimbres.Cells[2, iNumero] := Global.TimbresAdmin.Qry.Querry.FieldByName('ID_PAC').AsString;
+    GridTimbres.Cells[3, iNumero] := Global.TimbresAdmin.Qry.Querry.FieldByName('PAC').AsString;
+
+    GridTimbres.Cells[4, iNumero] := IntToStr(Global.TimbresAdmin.Qry.Querry.FieldByName('COMPRADOS').AsInteger);
+    GridTimbres.Cells[5, iNumero] := IntToStr(Global.TimbresAdmin.Qry.Querry.FieldByName('USADOS').AsInteger);
+    GridTimbres.Cells[6, iNumero] := IntToStr(Global.TimbresAdmin.Qry.Querry.FieldByName('RESTANTES').AsInteger);
+
+
+    GridTimbres.Cells[7, iNumero] := Global.TimbresAdmin.Qry.Querry.FieldByName('AVISAR').AsString;
+
+    if ((Global.TimbresAdmin.Qry.Querry.FieldByName('ACTIVO').AsBoolean) = True) then
+    begin
+      GridTimbres.Cells[8, iNumero] :=    'SI';
+    end
+    else
+    begin
+      GridTimbres.Cells[8, iNumero] := '';
+    end;
+
+
+    Global.TimbresAdmin.Qry.Querry.Next;
+  end;
 end;
 
 procedure TMainF.ButtonPacBuscarPorPacClick(Sender: TObject);
@@ -1553,7 +1796,7 @@ procedure TMainF.ButtonLugarExpedicionEditaClick(Sender: TObject);
 var
   LugarExpedicionEditaF: TLugarExpedicionEditaF;
 begin
-  if   Global.LugarExp.Id <> 0 then
+  if   Global.LugarExpAdmin.Id <> 0 then
   begin
     LugarExpedicionEditaF := TLugarExpedicionEditaF.Create(Application);
     try
@@ -1573,9 +1816,9 @@ end;
 
 procedure TMainF.ButtonLugarExpedicionEliminaClick(Sender: TObject);
 begin
-  if   Global.LugarExp.Id <> 0 then
+  if   Global.LugarExpAdmin.Id <> 0 then
   begin
-     Global.LugarExp.Delete;
+     Global.LugarExpAdmin.Delete;
      GetAllLugExp;
   end
   else
@@ -1654,13 +1897,38 @@ procedure TMainF.ButtonMonedaEditaClick(Sender: TObject);
 var
   MonedaEditaF: TMonedaEditaF;
 begin
-  MonedaEditaF := TMonedaEditaF.Create(Application);
-
-  try
-    MonedaEditaF.ShowModal;
-  finally
-    MonedaEditaF.Free;
+  if   Global.MonedaAdmin.Id <> 0 then
+  begin
+    MonedaEditaF := TMonedaEditaF.Create(Application);
+    try
+      MonedaEditaF.Load;
+      MonedaEditaF.ShowModal;
+    finally
+      MonedaEditaF.Free;
+    end;
+      GetAllMonedas;
+  end
+  else
+  begin
+    ShowMessage('Selecciona un Moneda a Editar');
   end;
+
+
+end;
+
+procedure TMainF.ButtonMonedaEliminaClick(Sender: TObject);
+begin
+  if   Global.MonedaAdmin.Id <> 0 then
+  begin
+    Global.MonedaAdmin.Delete;
+    GetAllMonedas;
+  end
+  else
+  begin
+    ShowMessage('Selecciona un Moneda a Eliminar');
+  end;
+
+
 end;
 
 procedure TMainF.ButtonMonedaNuevoClick(Sender: TObject);
@@ -1674,6 +1942,7 @@ begin
   finally
     MonedaRegistraF.Free;
   end;
+  GetAllMonedas;
 end;
 
 procedure TMainF.ButtonMostrarTodosLosClientesClick(Sender: TObject);
@@ -1775,13 +2044,36 @@ procedure TMainF.ButtonTimbreEditaClick(Sender: TObject);
 var
   TimbreEditaF: TTimbreEditaF;
 begin
-  TimbreEditaF := TTimbreEditaF.Create(Application);
+  if   Global.TimbresAdmin.Id <> 0 then
+  begin
+    TimbreEditaF := TTimbreEditaF.Create(Application);
 
-  try
-    TimbreEditaF.ShowModal;
-  finally
-    TimbreEditaF.Free;
+    try
+      TimbreEditaF.ShowModal;
+    finally
+      TimbreEditaF.Free;
+    end;
+    GetAllTimbres;
+  end
+  else
+  begin
+    ShowMessage('Selecciona Timibre a Editar');
   end;
+
+end;
+
+procedure TMainF.ButtonTimbreEliminaClick(Sender: TObject);
+begin
+  if   Global.TimbresAdmin.Id <> 0 then
+  begin
+    Global.TimbresAdmin.Delete;
+    GetAllTimbres;
+  end
+  else
+  begin
+    ShowMessage('Selecciona Timibre a Eliminar');
+  end;
+
 end;
 
 procedure TMainF.ButtonTimbreNuevoClick(Sender: TObject);
@@ -1795,6 +2087,7 @@ begin
   finally
     TimbreRegistraF.Free;
   end;
+  GetAllTimbres;
 end;
 
 procedure TMainF.ShowTab(ActiveTab: TTabSheet);
@@ -1828,6 +2121,24 @@ begin
   LabelSerie.Caption := Global.SeriesAdmin.Serie;
   LabelSerieFolio.Caption := IntToStr(Global.SeriesAdmin.Folio);
 
+end;
+
+procedure TMainF.GridTimbresClick(Sender: TObject);
+begin
+  Global.TimbresAdmin.Id := StrToInt(GridTimbres.Cells[1, GridTimbres.Row]);
+  Global.TimbresAdmin.Id_Pac := StrToInt(GridTimbres.Cells[2, GridTimbres.Row]);
+  Global.TimbresAdmin.Pac := GridTimbres.Cells[3, GridTimbres.Row];
+  Global.TimbresAdmin.Comprados := StrToInt(GridTimbres.Cells[4, GridTimbres.Row]);
+  Global.TimbresAdmin.Usados := StrToInt(GridTimbres.Cells[5, GridTimbres.Row]);
+  Global.TimbresAdmin.Restantes := StrToInt(GridTimbres.Cells[6, GridTimbres.Row]);
+  Global.TimbresAdmin.Avisar := StrToInt(GridTimbres.Cells[7, GridTimbres.Row]);
+
+
+  LabelTimbresPAC.Caption := Global.TimbresAdmin.Pac;
+  LabelTimbresComprados.Caption := IntToStr(Global.TimbresAdmin.Comprados);
+  LabelTimbresUsados.Caption := IntToStr(Global.TimbresAdmin.Usados);
+  LabelTimbresRestantes.Caption := IntToStr(Global.TimbresAdmin.Restantes);
+  LabelTimbresAvisar.Caption := IntToStr(Global.TimbresAdmin.Avisar);
 end;
 
 procedure TMainF.GridCertificadosClick(Sender: TObject);
@@ -1873,26 +2184,26 @@ end;
 
 procedure TMainF.GridLugarExpedClick(Sender: TObject);
 begin
-  Global.LugarExp.Id := StrToInt(GridLugarExped.Cells[1, GridLugarExped.Row]);
-  Global.LugarExp.Descripcion := GridLugarExped.Cells[2, GridLugarExped.Row];
-  Global.LugarExp.Uso := GridLugarExped.Cells[3, GridLugarExped.Row];
-  Global.LugarExp.Tipo_Especial := GridLugarExped.Cells[3, GridLugarExped.Row];
+  Global.LugarExpAdmin.Id := StrToInt(GridLugarExped.Cells[1, GridLugarExped.Row]);
+  Global.LugarExpAdmin.Descripcion := GridLugarExped.Cells[2, GridLugarExped.Row];
+  Global.LugarExpAdmin.Uso := GridLugarExped.Cells[3, GridLugarExped.Row];
+  Global.LugarExpAdmin.Tipo_Especial := GridLugarExped.Cells[3, GridLugarExped.Row];
 
     if (   GridLugarExped.Cells[3, GridLugarExped.Row] = 'SI' ) then
     begin
-      Global.LugarExp.Activo := True;
+      Global.LugarExpAdmin.Activo := True;
     end
     else
     begin
-      Global.LugarExp.Activo := True;
+      Global.LugarExpAdmin.Activo := False;
     end;
 
-	  LabelLugarExpedicionDescripcion.Caption := Global.LugarExp.Descripcion;
-	  LabelLugarExpedicionUso.Caption := Global.LugarExp.Uso;
-	  LabelLugarExpedicionTipoEspecial.Caption := Global.LugarExp.Tipo_Especial;
-	  CheckBoxLugExpActivo.Checked := Global.LugarExp.Activo;
-
+	  LabelLugarExpedicionDescripcion.Caption := Global.LugarExpAdmin.Descripcion;
+	  LabelLugarExpedicionUso.Caption := Global.LugarExpAdmin.Uso;
+	  LabelLugarExpedicionTipoEspecial.Caption := Global.LugarExpAdmin.Tipo_Especial;
+	  CheckBoxLugExpActivo.Checked := Global.LugarExpAdmin.Activo;
 end;
+
 
 procedure TMainF.GridMetodosPagoClick(Sender: TObject);
 begin
@@ -1902,6 +2213,28 @@ begin
 
   LabelMetodoPagoDesc.Caption := Global.MetodoPagoAdmin.Descripcion;
 
+end;
+
+procedure TMainF.GridMonedaClick(Sender: TObject);
+begin
+  Global.MonedaAdmin.Id := StrToInt(GridMoneda.Cells[1, GridMoneda.Row]);
+  Global.MonedaAdmin.Descripcion := GridMoneda.Cells[2, GridMoneda.Row];
+  Global.MonedaAdmin.Uso := GridMoneda.Cells[3, GridMoneda.Row];
+  Global.MonedaAdmin.Tipo_Especial := GridMoneda.Cells[3, GridMoneda.Row];
+
+    if (   GridMoneda.Cells[3, GridMoneda.Row] = 'SI' ) then
+    begin
+      Global.MonedaAdmin.Activo := True;
+    end
+    else
+    begin
+      Global.MonedaAdmin.Activo := False;
+    end;
+
+	  LabelMonedaDescripcion.Caption := Global.MonedaAdmin.Descripcion;
+	  LabelMonedaUso.Caption := Global.MonedaAdmin.Uso;
+	  LabelMonedaTipoEspecial.Caption := Global.MonedaAdmin.Tipo_Especial;
+	  CheckBoxMonedaActivo.Checked := Global.MonedaAdmin.Activo;
 end;
 
 procedure TMainF.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -1933,6 +2266,8 @@ begin
   GetAllFormasPagos;
   GetAllSeries;
   GetAllLugExp;
+  GetAllMonedas;
+  GetAllTimbres;
 
 end;
 

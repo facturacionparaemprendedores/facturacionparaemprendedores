@@ -49,12 +49,14 @@ uses
   MonedaEditaU in 'moneda\MonedaEditaU.pas' {MonedaEditaF},
   CertAdmin in 'classes\CertAdmin.pas',
   ImpuestosAdmin in 'classes\ImpuestosAdmin.pas',
-  Global in 'shared\Global.pas',
   MetodoPagoAdmin in 'classes\MetodoPagoAdmin.pas',
   FormaPagoAdmin in 'classes\FormaPagoAdmin.pas',
   SeriesAdmin in 'classes\SeriesAdmin.pas',
   LugarEexpAdmin in 'classes\LugarEexpAdmin.pas',
-  MonedaAdmin in 'classes\MonedaAdmin.pas';
+  MonedaAdmin in 'classes\MonedaAdmin.pas',
+  TimbresAdmin in 'classes\TimbresAdmin.pas',
+  Global in 'shared\Global.pas',
+  TimbreSeleccionaPac in 'timbres\TimbreSeleccionaPac.pas' {TimbreSeleccionaPacF};
 
 {$R *.res}
 
@@ -95,6 +97,7 @@ begin
   Application.CreateForm(TLugarExpedicionRegistraF, LugarExpedicionRegistraF);
   Application.CreateForm(TMonedaRegistraF, MonedaRegistraF);
   Application.CreateForm(TMonedaEditaF, MonedaEditaF);
+  Application.CreateForm(TTimbreSeleccionaPacF, TimbreSeleccionaPacF);
   Application.Run;
 end.
 

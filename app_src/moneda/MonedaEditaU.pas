@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Global;
 
 type
   TMonedaEditaF = class(TForm)
@@ -21,11 +21,13 @@ type
     Label2: TLabel;
     Label3: TLabel;
     ButtonGuarda: TButton;
-    CheckBoxLugExpActivo: TCheckBox;
+    CheckBoxMonedaExpActivo: TCheckBox;
     EditTipoEsp: TEdit;
     EditUso: TEdit;
     EditDesc: TEdit;
     procedure ButtonCancelarClick(Sender: TObject);
+    procedure ButtonGuardaClick(Sender: TObject);
+    procedure Load;
   private
     { Private declarations }
   public
@@ -42,6 +44,23 @@ implementation
 procedure TMonedaEditaF.ButtonCancelarClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TMonedaEditaF.ButtonGuardaClick(Sender: TObject);
+begin
+  Global.MonedaAdmin.Update(EditDesc.Text, EditUso.Text, EditTipoEsp.Text, CheckBoxMonedaExpActivo.Checked);
+  Close;
+
+end;
+
+procedure TMonedaEditaF.Load;
+begin
+  Global.MonedaAdmin.GetByID(Global.MonedaAdmin.Id);
+
+  EditDesc.Text := Global.MonedaAdmin.Descripcion;
+  EditUso.Text := Global.MonedaAdmin.Uso;
+  EditTipoEsp.Text := Global.MonedaAdmin.Tipo_Especial;
+  CheckBoxMonedaExpActivo.Checked := Global.MonedaAdmin.Activo;
 end;
 
 end.

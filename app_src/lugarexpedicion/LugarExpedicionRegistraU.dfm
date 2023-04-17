@@ -21,10 +21,8 @@ object LugarExpedicionRegistraF: TLugarExpedicionRegistraF
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 568
-    ExplicitHeight = 352
+    ExplicitWidth = 478
+    ExplicitHeight = 350
     object PanelBottom: TPanel
       Left = 0
       Top = 329
@@ -33,7 +31,8 @@ object LugarExpedicionRegistraF: TLugarExpedicionRegistraF
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = 281
+      ExplicitTop = 311
+      ExplicitWidth = 478
       object ButtonCancelar: TButton
         Left = 352
         Top = 0
@@ -52,7 +51,7 @@ object LugarExpedicionRegistraF: TLugarExpedicionRegistraF
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 568
+      ExplicitWidth = 478
       object PanelMessages: TPanel
         Left = 0
         Top = 0
@@ -61,7 +60,7 @@ object LugarExpedicionRegistraF: TLugarExpedicionRegistraF
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 568
+        ExplicitWidth = 478
         DesignSize = (
           488
           100)
@@ -75,7 +74,7 @@ object LugarExpedicionRegistraF: TLugarExpedicionRegistraF
           Color = 12615680
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 520
+          ExplicitWidth = 430
           object LabelMesage: TLabel
             Left = 16
             Top = 16
@@ -100,8 +99,8 @@ object LugarExpedicionRegistraF: TLugarExpedicionRegistraF
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitWidth = 568
-      ExplicitHeight = 203
+      ExplicitWidth = 478
+      ExplicitHeight = 209
       object GroupBox1: TGroupBox
         Left = 8
         Top = 9

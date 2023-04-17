@@ -266,12 +266,17 @@
         </DCCReference>
         <DCCReference Include="classes\CertAdmin.pas"/>
         <DCCReference Include="classes\ImpuestosAdmin.pas"/>
-        <DCCReference Include="shared\Global.pas"/>
         <DCCReference Include="classes\MetodoPagoAdmin.pas"/>
         <DCCReference Include="classes\FormaPagoAdmin.pas"/>
         <DCCReference Include="classes\SeriesAdmin.pas"/>
         <DCCReference Include="classes\LugarEexpAdmin.pas"/>
         <DCCReference Include="classes\MonedaAdmin.pas"/>
+        <DCCReference Include="classes\TimbresAdmin.pas"/>
+        <DCCReference Include="shared\Global.pas"/>
+        <DCCReference Include="timbres\TimbreSeleccionaPac.pas">
+            <Form>TimbreSeleccionaPacF</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

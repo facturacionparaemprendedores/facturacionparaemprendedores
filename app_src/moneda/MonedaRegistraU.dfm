@@ -3,8 +3,8 @@ object MonedaRegistraF: TMonedaRegistraF
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Moneda Registra'
-  ClientHeight = 442
-  ClientWidth = 628
+  ClientHeight = 345
+  ClientWidth = 503
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,25 +16,23 @@ object MonedaRegistraF: TMonedaRegistraF
   object PanelHoldAll: TPanel
     Left = 0
     Top = 0
-    Width = 628
-    Height = 442
+    Width = 503
+    Height = 345
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 488
-    ExplicitHeight = 349
+    ExplicitWidth = 509
+    ExplicitHeight = 327
     object PanelBottom: TPanel
       Left = 0
-      Top = 403
-      Width = 628
+      Top = 306
+      Width = 503
       Height = 39
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = 310
-      ExplicitWidth = 488
+      ExplicitTop = 288
+      ExplicitWidth = 509
       object ButtonCancelar: TButton
         Left = 352
         Top = 0
@@ -48,35 +46,35 @@ object MonedaRegistraF: TMonedaRegistraF
     object PanelTop: TPanel
       Left = 0
       Top = 0
-      Width = 628
+      Width = 503
       Height = 102
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 488
+      ExplicitWidth = 509
       object PanelMessages: TPanel
         Left = 0
         Top = 0
-        Width = 628
+        Width = 503
         Height = 100
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 488
+        ExplicitWidth = 509
         DesignSize = (
-          628
+          503
           100)
         object PanelMessage: TPanel
           Left = 24
           Top = 21
-          Width = 580
+          Width = 455
           Height = 58
           Anchors = [akLeft, akRight]
           BevelOuter = bvNone
           Color = 12615680
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 440
+          ExplicitWidth = 461
           object LabelMesage: TLabel
             Left = 16
             Top = 16
@@ -96,13 +94,13 @@ object MonedaRegistraF: TMonedaRegistraF
     object PanelMiddle: TPanel
       Left = 0
       Top = 102
-      Width = 628
-      Height = 301
+      Width = 503
+      Height = 204
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitWidth = 488
-      ExplicitHeight = 208
+      ExplicitWidth = 509
+      ExplicitHeight = 186
       object GroupBox1: TGroupBox
         Left = 8
         Top = 9
@@ -130,15 +128,16 @@ object MonedaRegistraF: TMonedaRegistraF
           Height = 15
           Caption = 'Tipo Especial'
         end
-        object ButtonGuarda: TButton
+        object ButtonRegistra: TButton
           Left = 344
           Top = 44
           Width = 84
           Height = 25
-          Caption = 'Guarda'
+          Caption = 'Registra'
           TabOrder = 4
+          OnClick = ButtonRegistraClick
         end
-        object CheckBoxLugExpActivo: TCheckBox
+        object CheckBoxMonedaExpActivo: TCheckBox
           Left = 136
           Top = 119
           Width = 97

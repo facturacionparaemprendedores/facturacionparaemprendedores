@@ -47,7 +47,7 @@ end;
 
 procedure TLugarExpedicionRegistraF.ButtonRegistraClick(Sender: TObject);
 begin
-  Global.LugarExp.New(EditDesc.Text, EditUso.Text, EditTipoEsp.Text,  CheckBoxLugExpActivo.Checked);
+  Global.LugarExpAdmin.New(EditDesc.Text, EditUso.Text, EditTipoEsp.Text,  CheckBoxLugExpActivo.Checked);
   Close;
 end;
 

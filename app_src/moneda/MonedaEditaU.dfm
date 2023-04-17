@@ -3,8 +3,8 @@ object MonedaEditaF: TMonedaEditaF
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Moneda Edita'
-  ClientHeight = 442
-  ClientWidth = 628
+  ClientHeight = 361
+  ClientWidth = 493
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,25 +16,23 @@ object MonedaEditaF: TMonedaEditaF
   object PanelHoldAll: TPanel
     Left = 0
     Top = 0
-    Width = 628
-    Height = 442
+    Width = 493
+    Height = 361
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 488
-    ExplicitHeight = 349
+    ExplicitWidth = 618
+    ExplicitHeight = 424
     object PanelBottom: TPanel
       Left = 0
-      Top = 403
-      Width = 628
+      Top = 322
+      Width = 493
       Height = 39
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = 310
-      ExplicitWidth = 488
+      ExplicitTop = 385
+      ExplicitWidth = 618
       object ButtonCancelar: TButton
         Left = 352
         Top = 0
@@ -48,35 +46,35 @@ object MonedaEditaF: TMonedaEditaF
     object PanelTop: TPanel
       Left = 0
       Top = 0
-      Width = 628
+      Width = 493
       Height = 102
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 488
+      ExplicitWidth = 618
       object PanelMessages: TPanel
         Left = 0
         Top = 0
-        Width = 628
+        Width = 493
         Height = 100
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 488
+        ExplicitWidth = 618
         DesignSize = (
-          628
+          493
           100)
         object PanelMessage: TPanel
           Left = 24
           Top = 21
-          Width = 580
+          Width = 445
           Height = 58
           Anchors = [akLeft, akRight]
           BevelOuter = bvNone
           Color = 12615680
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 440
+          ExplicitWidth = 570
           object LabelMesage: TLabel
             Left = 16
             Top = 16
@@ -96,13 +94,13 @@ object MonedaEditaF: TMonedaEditaF
     object PanelMiddle: TPanel
       Left = 0
       Top = 102
-      Width = 628
-      Height = 301
+      Width = 493
+      Height = 220
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitWidth = 488
-      ExplicitHeight = 208
+      ExplicitWidth = 618
+      ExplicitHeight = 283
       object GroupBox1: TGroupBox
         Left = 8
         Top = 9
@@ -137,8 +135,9 @@ object MonedaEditaF: TMonedaEditaF
           Height = 25
           Caption = 'Guarda'
           TabOrder = 4
+          OnClick = ButtonGuardaClick
         end
-        object CheckBoxLugExpActivo: TCheckBox
+        object CheckBoxMonedaExpActivo: TCheckBox
           Left = 136
           Top = 119
           Width = 97

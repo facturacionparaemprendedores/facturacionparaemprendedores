@@ -3,8 +3,8 @@ object TimbreEditaF: TTimbreEditaF
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Timbre Edita'
-  ClientHeight = 519
-  ClientWidth = 892
+  ClientHeight = 427
+  ClientWidth = 732
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,33 +12,30 @@ object TimbreEditaF: TTimbreEditaF
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poMainFormCenter
-  PixelsPerInch = 96
   TextHeight = 15
   object PanelHoldAll: TPanel
     Left = 0
     Top = 0
-    Width = 892
-    Height = 519
+    Width = 732
+    Height = 427
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = -265
-    ExplicitTop = -80
-    ExplicitWidth = 883
-    ExplicitHeight = 504
+    ExplicitWidth = 722
+    ExplicitHeight = 409
     object PanelBottom: TPanel
       Left = 0
-      Top = 466
-      Width = 892
+      Top = 374
+      Width = 732
       Height = 53
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = 451
-      ExplicitWidth = 883
+      ExplicitTop = 356
+      ExplicitWidth = 722
       object ButtonCancelar: TButton
-        Left = 784
-        Top = 6
+        Left = 614
+        Top = 14
         Width = 75
         Height = 25
         Caption = 'Cancelar'
@@ -49,34 +46,34 @@ object TimbreEditaF: TTimbreEditaF
     object PanelTop: TPanel
       Left = 0
       Top = 0
-      Width = 892
+      Width = 732
       Height = 102
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 883
+      ExplicitWidth = 722
       object PanelMessages: TPanel
         Left = 0
         Top = 0
-        Width = 892
+        Width = 732
         Height = 100
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 883
+        ExplicitWidth = 722
         DesignSize = (
-          892
+          732
           100)
         object PanelMessage: TPanel
           Left = 24
           Top = 21
-          Width = 844
+          Width = 684
           Height = 58
           Anchors = [akLeft, akRight]
           BevelOuter = bvNone
           Color = 12615680
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 835
+          ExplicitWidth = 674
           object LabelMesage: TLabel
             Left = 16
             Top = 16
@@ -96,73 +93,87 @@ object TimbreEditaF: TTimbreEditaF
     object PanelMiddle: TPanel
       Left = 0
       Top = 102
-      Width = 892
-      Height = 364
+      Width = 732
+      Height = 272
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitWidth = 883
-      ExplicitHeight = 349
+      ExplicitWidth = 722
+      ExplicitHeight = 254
       object GroupBox1: TGroupBox
-        Left = 8
-        Top = 22
-        Width = 897
-        Height = 361
-        Caption = 'Certificados SAT'
+        Left = 24
+        Top = 14
+        Width = 690
+        Height = 251
+        Caption = 'Registrar Timbres por PAC'
         TabOrder = 0
         object Label1: TLabel
-          Left = 40
-          Top = 48
-          Width = 80
+          Left = 24
+          Top = 40
+          Width = 22
           Height = 15
-          Caption = 'Certificado .cer'
+          Caption = 'PAC'
         end
         object Label2: TLabel
-          Left = 40
-          Top = 144
-          Width = 82
+          Left = 24
+          Top = 80
+          Width = 111
           Height = 15
-          Caption = 'Certificado .key'
+          Caption = 'Timbres Comprados:'
         end
-        object EditCertCer: TEdit
-          Left = 40
-          Top = 85
-          Width = 537
+        object Label3: TLabel
+          Left = 24
+          Top = 128
+          Width = 229
+          Height = 15
+          Caption = 'Avisar cuando queden menos Timbres que:'
+        end
+        object EditPAC: TEdit
+          Left = 289
+          Top = 37
+          Width = 214
           Height = 23
           TabOrder = 0
-          Text = 'EditCertCer'
         end
-        object EditCertKey: TEdit
-          Left = 40
-          Top = 175
-          Width = 545
+        object EditTimbresComprados: TEdit
+          Left = 289
+          Top = 77
+          Width = 161
           Height = 23
-          TabOrder = 2
-          Text = 'EditCertKey'
-        end
-        object ButtonGuardarCert: TButton
-          Left = 608
-          Top = 248
-          Width = 180
-          Height = 25
-          Caption = 'Guardar'
-          TabOrder = 4
-        end
-        object ButtonSelectCertCer: TButton
-          Left = 608
-          Top = 89
-          Width = 180
-          Height = 25
-          Caption = 'Selecciona Cer'
           TabOrder = 1
         end
-        object ButtonSelectCertKey: TButton
-          Left = 608
-          Top = 175
-          Width = 180
+        object ButtonSelectPAC: TButton
+          Left = 520
+          Top = 36
+          Width = 145
           Height = 25
-          Caption = 'Selecciona Key'
+          Caption = 'Selecciona PAC'
+          TabOrder = 4
+          OnClick = ButtonSelectPACClick
+        end
+        object ButtonGuarda: TButton
+          Left = 536
+          Top = 125
+          Width = 129
+          Height = 25
+          Caption = 'Guarda'
+          TabOrder = 5
+          OnClick = ButtonGuardaClick
+        end
+        object CheckBoxActivo: TCheckBox
+          Left = 289
+          Top = 176
+          Width = 97
+          Height = 17
+          Caption = 'Activo'
           TabOrder = 3
+        end
+        object EditTimbresAvisa: TEdit
+          Left = 289
+          Top = 125
+          Width = 161
+          Height = 23
+          TabOrder = 2
         end
       end
     end

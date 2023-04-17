@@ -3,7 +3,7 @@ object MainF: TMainF
   Top = 0
   Caption = 'Facturacion para Emprendedores'
   ClientHeight = 1124
-  ClientWidth = 1933
+  ClientWidth = 2039
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,13 +13,13 @@ object MainF: TMainF
   OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
-    1933
+    2039
     1124)
   TextHeight = 13
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 1933
+    Width = 2039
     Height = 1124
     Align = alClient
     ExplicitLeft = 712
@@ -30,7 +30,7 @@ object MainF: TMainF
   object PanelHoldWork: TPanel
     Left = 0
     Top = 0
-    Width = 1933
+    Width = 2039
     Height = 1124
     Align = alClient
     TabOrder = 0
@@ -118,7 +118,6 @@ object MainF: TMainF
         Caption = 'Salir'
         TabOrder = 5
         OnClick = PanelSalirClick
-        ExplicitTop = 780
       end
       object PanelAcerca: TPanel
         Left = 1
@@ -130,7 +129,6 @@ object MainF: TMainF
         Caption = 'Acerca'
         TabOrder = 6
         OnClick = PanelAcercaClick
-        ExplicitTop = 739
       end
       object PanelUpdate: TPanel
         Left = 1
@@ -142,7 +140,6 @@ object MainF: TMainF
         Caption = 'Actualizar'
         TabOrder = 7
         OnClick = PanelUpdateClick
-        ExplicitTop = 698
       end
       object PanelEmpresa: TPanel
         Left = 1
@@ -231,7 +228,6 @@ object MainF: TMainF
         Caption = 'Series'
         TabOrder = 15
         OnClick = PanelSeriesClick
-        ExplicitTop = 534
       end
       object PanelTimbres: TPanel
         Left = 1
@@ -243,7 +239,6 @@ object MainF: TMainF
         Caption = 'Timbres'
         TabOrder = 16
         OnClick = PanelTimbresClick
-        ExplicitTop = 575
       end
       object PanelMoneda: TPanel
         Left = 1
@@ -255,7 +250,6 @@ object MainF: TMainF
         Caption = 'Moneda'
         TabOrder = 17
         OnClick = PanelMonedaClick
-        ExplicitTop = 657
       end
       object PanelLugarExpedicion: TPanel
         Left = 1
@@ -267,13 +261,12 @@ object MainF: TMainF
         Caption = 'Lugar de Expedicion'
         TabOrder = 18
         OnClick = PanelLugarExpedicionClick
-        ExplicitTop = 616
       end
     end
     object PanelWorkTop: TPanel
       Left = 1
       Top = 1
-      Width = 1931
+      Width = 2037
       Height = 41
       Align = alTop
       TabOrder = 1
@@ -282,7 +275,7 @@ object MainF: TMainF
     object PanelWorkDer: TPanel
       Left = 204
       Top = 42
-      Width = 1728
+      Width = 1834
       Height = 1081
       Align = alClient
       TabOrder = 2
@@ -291,44 +284,50 @@ object MainF: TMainF
       object PageControlWork: TPageControl
         Left = 1
         Top = 1
-        Width = 1726
+        Width = 1832
         Height = 935
-        ActivePage = TabSheetMoneda
+        ActivePage = TabSheetItems
         Align = alClient
         TabOrder = 0
+        ExplicitWidth = 1716
+        ExplicitHeight = 917
         object TabSheetBilling: TTabSheet
           Caption = 'TabSheetBilling'
           object Panel1: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel2: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 401
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
               object Panel3: TPanel
                 Left = 0
                 Top = 100
-                Width = 1718
+                Width = 1824
                 Height = 201
                 Align = alTop
                 TabOrder = 0
+                ExplicitWidth = 1718
                 object Panel4: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1385
+                  Width = 1491
                   Height = 199
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
+                  ExplicitWidth = 1385
                   object Label15: TLabel
                     Left = 19
                     Top = 60
@@ -426,13 +425,14 @@ object MainF: TMainF
                   end
                 end
                 object Panel5: TPanel
-                  Left = 1386
+                  Left = 1492
                   Top = 1
                   Width = 331
                   Height = 199
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
+                  ExplicitLeft = 1386
                   object LabelCambio: TLabel
                     Left = 129
                     Top = 81
@@ -498,23 +498,25 @@ object MainF: TMainF
               object Panel6: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 100
                 Align = alTop
                 TabOrder = 1
+                ExplicitWidth = 1718
                 DesignSize = (
-                  1718
+                  1824
                   100)
                 object Panel7: TPanel
                   Left = 36
                   Top = 21
-                  Width = 1806
+                  Width = 1912
                   Height = 58
                   Anchors = [akLeft, akRight]
                   BevelOuter = bvNone
                   Color = 12615680
                   ParentBackground = False
                   TabOrder = 0
+                  ExplicitWidth = 1806
                   object Label20: TLabel
                     Left = 16
                     Top = 16
@@ -534,20 +536,22 @@ object MainF: TMainF
             object Panel8: TPanel
               Left = 0
               Top = 401
-              Width = 1718
+              Width = 1824
               Height = 465
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
             end
             object Panel9: TPanel
               Left = 0
               Top = 866
-              Width = 1718
+              Width = 1824
               Height = 41
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -557,34 +561,38 @@ object MainF: TMainF
           object Panel18: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel19: TPanel
               Left = 0
               Top = 0
-              Width = 1718
-              Height = 281
+              Width = 1824
+              Height = 367
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
               object PanelCliente: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
-                Height = 281
+                Width = 1824
+                Height = 367
                 Align = alClient
                 TabOrder = 0
+                ExplicitHeight = 281
                 object PanelClienteDatos: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1385
-                  Height = 279
+                  Width = 1491
+                  Height = 365
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
+                  ExplicitWidth = 1385
+                  ExplicitHeight = 279
                   object Label26: TLabel
                     Left = 48
                     Top = 85
@@ -595,9 +603,9 @@ object MainF: TMainF
                   object Label27: TLabel
                     Left = 48
                     Top = 38
-                    Width = 31
+                    Width = 117
                     Height = 13
-                    Caption = 'Clave:'
+                    Caption = 'Clave Producto Servicio:'
                   end
                   object EditRFC: TEdit
                     Left = 184
@@ -635,47 +643,77 @@ object MainF: TMainF
                     Left = 24
                     Top = 121
                     Width = 886
-                    Height = 129
+                    Height = 216
                     Caption = 'Articulo Seleccionado'
                     TabOrder = 4
                     object Label28: TLabel
                       Left = 24
-                      Top = 42
-                      Width = 31
+                      Top = 26
+                      Width = 117
                       Height = 13
-                      Caption = 'Clave:'
+                      Caption = 'Clave Producto Servicio:'
                     end
                     object Label29: TLabel
                       Left = 24
-                      Top = 74
+                      Top = 49
                       Width = 58
                       Height = 13
                       Caption = 'Descripcion:'
                     end
                     object LabelProdClave: TLabel
                       Left = 160
-                      Top = 42
-                      Width = 52
+                      Top = 26
+                      Width = 40
                       Height = 13
-                      Caption = 'LabelClave'
+                      Caption = '----------'
                     end
                     object LabelProdDesc: TLabel
                       Left = 160
-                      Top = 74
-                      Width = 77
+                      Top = 49
+                      Width = 32
                       Height = 13
-                      Caption = 'LabelDescrpcion'
+                      Caption = '--------'
+                    end
+                    object Label63: TLabel
+                      Left = 24
+                      Top = 71
+                      Width = 33
+                      Height = 13
+                      Caption = 'Precio:'
+                    end
+                    object LabelProdPrecio: TLabel
+                      Left = 160
+                      Top = 71
+                      Width = 40
+                      Height = 13
+                      Caption = '----------'
+                    end
+                    object LabelProdUnidad: TLabel
+                      Left = 160
+                      Top = 96
+                      Width = 40
+                      Height = 13
+                      Caption = '----------'
+                    end
+                    object Unidad: TLabel
+                      Left = 24
+                      Top = 96
+                      Width = 33
+                      Height = 13
+                      Caption = 'Unidad'
                     end
                   end
                 end
                 object PanelClietenSelect: TPanel
-                  Left = 1386
+                  Left = 1492
                   Top = 1
                   Width = 331
-                  Height = 279
+                  Height = 365
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
+                  ExplicitLeft = 1386
+                  ExplicitHeight = 279
                   object ButtonItemRegistra: TButton
                     Left = 86
                     Top = 79
@@ -708,29 +746,34 @@ object MainF: TMainF
             end
             object Panel20: TPanel
               Left = 0
-              Top = 281
-              Width = 1718
-              Height = 551
+              Top = 367
+              Width = 1824
+              Height = 465
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitTop = 281
+              ExplicitWidth = 1718
+              ExplicitHeight = 551
               object GridItems: TStringGrid
                 Left = 0
                 Top = 0
-                Width = 1718
-                Height = 551
+                Width = 1824
+                Height = 465
                 Align = alClient
                 TabOrder = 0
+                ExplicitHeight = 551
               end
             end
             object Panel21: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -740,34 +783,38 @@ object MainF: TMainF
           object Panel22: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel23: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 281
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
               object Panel24: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 281
                 Align = alClient
                 TabOrder = 0
+                ExplicitWidth = 1718
                 object Panel25: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1385
+                  Width = 1491
                   Height = 279
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
+                  ExplicitWidth = 1385
                   object Label30: TLabel
                     Left = 48
                     Top = 85
@@ -861,13 +908,14 @@ object MainF: TMainF
                   end
                 end
                 object Panel26: TPanel
-                  Left = 1386
+                  Left = 1492
                   Top = 1
                   Width = 331
                   Height = 279
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
+                  ExplicitLeft = 1386
                   object ButtonRegistrarNuevoCliente: TButton
                     Left = 70
                     Top = 25
@@ -901,30 +949,33 @@ object MainF: TMainF
             object Panel27: TPanel
               Left = 0
               Top = 281
-              Width = 1718
+              Width = 1824
               Height = 551
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               object GridClientes: TStringGrid
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 551
                 Align = alClient
                 Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
                 TabOrder = 0
                 OnClick = GridClientesClick
+                ExplicitWidth = 1718
               end
             end
             object Panel28: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -934,37 +985,41 @@ object MainF: TMainF
           object Panel29: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel30: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 97
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
             end
             object Panel31: TPanel
               Left = 0
               Top = 97
-              Width = 1718
+              Width = 1824
               Height = 735
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
             end
             object Panel32: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
               object ButtonCerrar: TButton
                 Left = 1207
                 Top = 32
@@ -982,39 +1037,44 @@ object MainF: TMainF
           object Panel46: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1708
+            ExplicitHeight = 889
             object Panel47: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 273
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1708
               object Panel48: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 100
                 Align = alTop
                 TabOrder = 0
+                ExplicitWidth = 1708
                 DesignSize = (
-                  1718
+                  1824
                   100)
                 object Panel49: TPanel
                   Left = 36
                   Top = 21
-                  Width = 1524
+                  Width = 1630
                   Height = 58
                   Anchors = [akLeft, akRight]
                   BevelOuter = bvNone
                   Color = 12615680
                   ParentBackground = False
                   TabOrder = 0
+                  ExplicitWidth = 1514
                   object Label42: TLabel
                     Left = 16
                     Top = 16
@@ -1091,23 +1151,27 @@ object MainF: TMainF
             object Panel50: TPanel
               Left = 0
               Top = 273
-              Width = 1718
+              Width = 1824
               Height = 593
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1708
+              ExplicitHeight = 575
               DesignSize = (
-                1718
+                1824
                 593)
               object GridPacs: TStringGrid
                 Left = 36
                 Top = 176
-                Width = 1524
+                Width = 1630
                 Height = 265
                 Anchors = [akLeft, akTop, akRight, akBottom]
                 Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
                 TabOrder = 0
                 OnClick = GridPacsClick
+                ExplicitWidth = 1514
+                ExplicitHeight = 247
               end
               object GroupBox8: TGroupBox
                 Left = 36
@@ -1149,11 +1213,13 @@ object MainF: TMainF
             object Panel51: TPanel
               Left = 0
               Top = 866
-              Width = 1718
+              Width = 1824
               Height = 41
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitTop = 848
+              ExplicitWidth = 1708
             end
           end
         end
@@ -1234,28 +1300,31 @@ object MainF: TMainF
           object Panel52: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel53: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 105
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
             end
             object Panel54: TPanel
               Left = 0
               Top = 105
-              Width = 1718
+              Width = 1824
               Height = 727
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               object GroupBox10: TGroupBox
                 Left = 56
                 Top = 24
@@ -1303,11 +1372,12 @@ object MainF: TMainF
             object Panel55: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -1317,48 +1387,53 @@ object MainF: TMainF
           object PanelHoldAll: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object PanelBottom: TPanel
               Left = 0
               Top = 854
-              Width = 1718
+              Width = 1824
               Height = 53
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
             end
             object PanelTop: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 102
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               object PanelMessages: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 100
                 Align = alTop
                 TabOrder = 0
+                ExplicitWidth = 1718
                 DesignSize = (
-                  1718
+                  1824
                   100)
                 object PanelMessage: TPanel
                   Left = 24
                   Top = 21
-                  Width = 1578
+                  Width = 1684
                   Height = 58
                   Anchors = [akLeft, akRight]
                   BevelOuter = bvNone
                   Color = 12615680
                   ParentBackground = False
                   TabOrder = 0
+                  ExplicitWidth = 1578
                   object LabelMesage: TLabel
                     Left = 16
                     Top = 16
@@ -1378,11 +1453,12 @@ object MainF: TMainF
             object PanelMiddle: TPanel
               Left = 0
               Top = 102
-              Width = 1718
+              Width = 1824
               Height = 752
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
               object GroupBox1: TGroupBox
                 Left = 24
                 Top = 24
@@ -1598,34 +1674,38 @@ object MainF: TMainF
           object Panel33: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel34: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 281
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
               object Panel35: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 281
                 Align = alClient
                 TabOrder = 0
+                ExplicitWidth = 1718
                 object Panel36: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1716
+                  Width = 1822
                   Height = 279
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
+                  ExplicitWidth = 1716
                   object GroupBox5: TGroupBox
                     Left = 32
                     Top = 33
@@ -1695,30 +1775,33 @@ object MainF: TMainF
             object Panel37: TPanel
               Left = 0
               Top = 281
-              Width = 1718
+              Width = 1824
               Height = 551
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               object GridCertificados: TStringGrid
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 551
                 Align = alClient
                 Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
                 TabOrder = 0
                 OnClick = GridCertificadosClick
+                ExplicitWidth = 1718
               end
             end
             object Panel38: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -1728,34 +1811,38 @@ object MainF: TMainF
           object Panel39: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel40: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 281
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
               object Panel41: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 281
                 Align = alClient
                 TabOrder = 0
+                ExplicitWidth = 1718
                 object Panel42: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1385
+                  Width = 1491
                   Height = 279
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
+                  ExplicitWidth = 1385
                   object Label37: TLabel
                     Left = 48
                     Top = 38
@@ -1817,13 +1904,14 @@ object MainF: TMainF
                   end
                 end
                 object Panel43: TPanel
-                  Left = 1386
+                  Left = 1492
                   Top = 1
                   Width = 331
                   Height = 279
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
+                  ExplicitLeft = 1386
                   object ButtonImpuestoRegistra: TButton
                     Left = 86
                     Top = 79
@@ -1857,30 +1945,33 @@ object MainF: TMainF
             object Panel44: TPanel
               Left = 0
               Top = 281
-              Width = 1718
+              Width = 1824
               Height = 551
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               object GridImpuestos: TStringGrid
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 551
                 Align = alClient
                 Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
                 TabOrder = 0
                 OnClick = GridImpuestosClick
+                ExplicitWidth = 1718
               end
             end
             object Panel45: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -1890,34 +1981,38 @@ object MainF: TMainF
           object Panel10: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel11: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 401
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
               object Panel12: TPanel
                 Left = 0
                 Top = 100
-                Width = 1718
+                Width = 1824
                 Height = 295
                 Align = alTop
                 TabOrder = 0
+                ExplicitWidth = 1718
                 object Panel13: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1716
+                  Width = 1822
                   Height = 293
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
+                  ExplicitWidth = 1716
                   object Label21: TLabel
                     Left = 19
                     Top = 60
@@ -2003,23 +2098,25 @@ object MainF: TMainF
               object Panel14: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 100
                 Align = alTop
                 TabOrder = 1
+                ExplicitWidth = 1718
                 DesignSize = (
-                  1718
+                  1824
                   100)
                 object Panel15: TPanel
                   Left = 36
                   Top = 21
-                  Width = 1499
+                  Width = 1605
                   Height = 58
                   Anchors = [akLeft, akRight]
                   BevelOuter = bvNone
                   Color = 12615680
                   ParentBackground = False
                   TabOrder = 0
+                  ExplicitWidth = 1499
                   object Label25: TLabel
                     Left = 16
                     Top = 16
@@ -2039,18 +2136,19 @@ object MainF: TMainF
             object Panel16: TPanel
               Left = 0
               Top = 401
-              Width = 1718
+              Width = 1824
               Height = 465
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               DesignSize = (
-                1718
+                1824
                 465)
               object GridFacturas: TStringGrid
                 Left = 20
                 Top = 6
-                Width = 1529
+                Width = 1635
                 Height = 427
                 Anchors = [akLeft, akTop, akRight, akBottom]
                 TabOrder = 0
@@ -2059,11 +2157,12 @@ object MainF: TMainF
             object Panel17: TPanel
               Left = 0
               Top = 866
-              Width = 1718
+              Width = 1824
               Height = 41
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -2073,34 +2172,38 @@ object MainF: TMainF
           object Panel56: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel57: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 281
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
               object Panel58: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 281
                 Align = alClient
                 TabOrder = 0
+                ExplicitWidth = 1718
                 object Panel59: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1385
+                  Width = 1491
                   Height = 279
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
+                  ExplicitWidth = 1385
                   object Label53: TLabel
                     Left = 32
                     Top = 38
@@ -2148,13 +2251,14 @@ object MainF: TMainF
                   end
                 end
                 object Panel60: TPanel
-                  Left = 1386
+                  Left = 1492
                   Top = 1
                   Width = 331
                   Height = 279
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
+                  ExplicitLeft = 1386
                   object ButtonMetodoPagoNuevo: TButton
                     Left = 86
                     Top = 83
@@ -2188,30 +2292,33 @@ object MainF: TMainF
             object Panel61: TPanel
               Left = 0
               Top = 281
-              Width = 1718
+              Width = 1824
               Height = 551
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               object GridMetodosPago: TStringGrid
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 551
                 Align = alClient
                 Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
                 TabOrder = 0
                 OnClick = GridMetodosPagoClick
+                ExplicitWidth = 1718
               end
             end
             object Panel62: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -2221,34 +2328,38 @@ object MainF: TMainF
           object Panel63: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel64: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 281
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
               object Panel65: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 281
                 Align = alClient
                 TabOrder = 0
+                ExplicitWidth = 1718
                 object Panel66: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1385
+                  Width = 1491
                   Height = 279
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
+                  ExplicitWidth = 1385
                   object Label59: TLabel
                     Left = 48
                     Top = 38
@@ -2296,13 +2407,14 @@ object MainF: TMainF
                   end
                 end
                 object Panel67: TPanel
-                  Left = 1386
+                  Left = 1492
                   Top = 1
                   Width = 331
                   Height = 279
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
+                  ExplicitLeft = 1386
                   object ButtonFormaDePagoNuevo: TButton
                     Left = 86
                     Top = 79
@@ -2336,30 +2448,33 @@ object MainF: TMainF
             object Panel68: TPanel
               Left = 0
               Top = 281
-              Width = 1718
+              Width = 1824
               Height = 551
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               object GridFormaPago: TStringGrid
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 551
                 Align = alClient
                 Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
                 TabOrder = 0
                 OnClick = GridFormaPagoClick
+                ExplicitWidth = 1718
               end
             end
             object Panel69: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -2369,39 +2484,38 @@ object MainF: TMainF
           object Panel77: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
-            ExplicitWidth = 1708
-            ExplicitHeight = 889
+            ExplicitWidth = 1718
             object Panel78: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 281
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
-              ExplicitWidth = 1708
+              ExplicitWidth = 1718
               object Panel79: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 281
                 Align = alClient
                 TabOrder = 0
-                ExplicitWidth = 1708
+                ExplicitWidth = 1718
                 object Panel80: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1385
+                  Width = 1491
                   Height = 279
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
-                  ExplicitWidth = 1375
+                  ExplicitWidth = 1385
                   object Label67: TLabel
                     Left = 48
                     Top = 38
@@ -2477,14 +2591,14 @@ object MainF: TMainF
                   end
                 end
                 object Panel81: TPanel
-                  Left = 1386
+                  Left = 1492
                   Top = 1
                   Width = 331
                   Height = 279
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
-                  ExplicitLeft = 1376
+                  ExplicitLeft = 1386
                   object ButtonSerieNueva: TButton
                     Left = 86
                     Top = 79
@@ -2518,36 +2632,33 @@ object MainF: TMainF
             object Panel82: TPanel
               Left = 0
               Top = 281
-              Width = 1718
+              Width = 1824
               Height = 551
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
-              ExplicitWidth = 1708
-              ExplicitHeight = 533
+              ExplicitWidth = 1718
               object GridSeries: TStringGrid
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 551
                 Align = alClient
                 Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
                 TabOrder = 0
                 OnClick = GridSeriesClick
-                ExplicitWidth = 1708
-                ExplicitHeight = 533
+                ExplicitWidth = 1718
               end
             end
             object Panel83: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
-              ExplicitTop = 814
-              ExplicitWidth = 1708
+              ExplicitWidth = 1718
             end
           end
         end
@@ -2557,115 +2668,150 @@ object MainF: TMainF
           object Panel84: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel85: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 281
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
               object Panel86: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 281
                 Align = alClient
                 TabOrder = 0
+                ExplicitWidth = 1718
                 object Panel87: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1385
+                  Width = 1491
                   Height = 279
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
-                  object Label72: TLabel
-                    Left = 48
-                    Top = 85
-                    Width = 26
-                    Height = 13
-                    Caption = 'Folio:'
-                  end
+                  ExplicitWidth = 1385
+                  ExplicitHeight = 248
                   object Label73: TLabel
-                    Left = 48
-                    Top = 38
-                    Width = 28
+                    Left = 24
+                    Top = 30
+                    Width = 83
                     Height = 13
-                    Caption = 'Serie:'
+                    Caption = 'Timbres por PAC:'
                   end
-                  object Edit13: TEdit
-                    Left = 184
-                    Top = 35
+                  object EditTimbresPorPAC: TEdit
+                    Left = 125
+                    Top = 27
                     Width = 465
                     Height = 21
                     TabOrder = 0
                   end
-                  object Edit14: TEdit
-                    Left = 184
-                    Top = 82
-                    Width = 465
-                    Height = 21
-                    TabOrder = 1
-                  end
-                  object Button18: TButton
-                    Left = 681
-                    Top = 25
+                  object ButtonTimbresPorPAC: TButton
+                    Left = 609
+                    Top = 17
                     Width = 241
                     Height = 42
                     Caption = 'Buscar Por Folios por Serie Asignado'
-                    TabOrder = 2
+                    TabOrder = 1
+                    OnClick = ButtonTimbresPorPACClick
                   end
                   object GroupBox15: TGroupBox
                     Left = 24
-                    Top = 121
+                    Top = 65
                     Width = 886
-                    Height = 129
+                    Height = 142
                     Caption = 'Forma de Pago Seleccionado'
-                    TabOrder = 3
+                    TabOrder = 2
                     object Label74: TLabel
-                      Left = 24
-                      Top = 42
-                      Width = 28
+                      Left = 25
+                      Top = 25
+                      Width = 20
                       Height = 13
-                      Caption = 'Serie:'
+                      Caption = 'PAC'
                     end
                     object Label75: TLabel
-                      Left = 24
-                      Top = 74
-                      Width = 22
+                      Left = 25
+                      Top = 47
+                      Width = 94
                       Height = 13
-                      Caption = 'Folio'
+                      Caption = 'Timbres Comprados'
                     end
-                    object Label76: TLabel
-                      Left = 160
-                      Top = 42
-                      Width = 78
+                    object LabelTimbresPAC: TLabel
+                      Left = 173
+                      Top = 25
+                      Width = 32
                       Height = 13
-                      Caption = 'LabelRFCCliente'
+                      Caption = '--------'
                     end
-                    object Label77: TLabel
-                      Left = 160
-                      Top = 74
-                      Width = 31
+                    object LabelTimbresComprados: TLabel
+                      Left = 173
+                      Top = 47
+                      Width = 32
                       Height = 13
-                      Caption = 'Label5'
+                      Caption = '--------'
+                    end
+                    object Label47: TLabel
+                      Left = 25
+                      Top = 68
+                      Width = 75
+                      Height = 13
+                      Caption = 'Timbres Usados'
+                    end
+                    object LabelTimbresUsados: TLabel
+                      Left = 173
+                      Top = 68
+                      Width = 32
+                      Height = 13
+                      Caption = '--------'
+                    end
+                    object Label58: TLabel
+                      Left = 25
+                      Top = 90
+                      Width = 89
+                      Height = 13
+                      Caption = 'Timbres Restantes'
+                    end
+                    object LabelTimbresRestantes: TLabel
+                      Left = 173
+                      Top = 90
+                      Width = 32
+                      Height = 13
+                      Caption = '--------'
+                    end
+                    object Label56: TLabel
+                      Left = 25
+                      Top = 110
+                      Width = 137
+                      Height = 13
+                      Caption = 'Avisar Si timbres menor que:'
+                    end
+                    object LabelTimbresAvisar: TLabel
+                      Left = 173
+                      Top = 110
+                      Width = 32
+                      Height = 13
+                      Caption = '--------'
                     end
                   end
                 end
                 object Panel88: TPanel
-                  Left = 1386
+                  Left = 1492
                   Top = 1
                   Width = 331
                   Height = 279
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
+                  ExplicitLeft = 1386
                   object ButtonTimbreNuevo: TButton
                     Left = 86
                     Top = 79
@@ -2691,6 +2837,7 @@ object MainF: TMainF
                     Height = 42
                     Caption = 'Eliminar'
                     TabOrder = 2
+                    OnClick = ButtonTimbreEliminaClick
                   end
                 end
               end
@@ -2698,28 +2845,35 @@ object MainF: TMainF
             object Panel89: TPanel
               Left = 0
               Top = 281
-              Width = 1718
+              Width = 1824
               Height = 551
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               object GridTimbres: TStringGrid
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 551
                 Align = alClient
+                Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
                 TabOrder = 0
+                OnClick = GridTimbresClick
+                ExplicitTop = 5
+                ExplicitWidth = 1718
+                ExplicitHeight = 546
               end
             end
             object Panel90: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -2729,34 +2883,38 @@ object MainF: TMainF
           object Panel91: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel92: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 281
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
               object Panel93: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 281
                 Align = alClient
                 TabOrder = 0
+                ExplicitWidth = 1718
                 object Panel94: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1385
+                  Width = 1491
                   Height = 279
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
+                  ExplicitWidth = 1385
                   object Label79: TLabel
                     Left = 48
                     Top = 38
@@ -2847,13 +3005,14 @@ object MainF: TMainF
                   end
                 end
                 object Panel95: TPanel
-                  Left = 1386
+                  Left = 1492
                   Top = 1
                   Width = 331
                   Height = 279
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
+                  ExplicitLeft = 1386
                   object ButtonLugarExpedicionNuevo: TButton
                     Left = 86
                     Top = 79
@@ -2887,32 +3046,33 @@ object MainF: TMainF
             object Panel96: TPanel
               Left = 0
               Top = 281
-              Width = 1718
+              Width = 1824
               Height = 551
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               object GridLugarExped: TStringGrid
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 551
                 Align = alClient
                 Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
                 TabOrder = 0
                 OnClick = GridLugarExpedClick
-                ExplicitLeft = 1
-                ExplicitTop = -6
+                ExplicitWidth = 1718
               end
             end
             object Panel97: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -2922,41 +3082,38 @@ object MainF: TMainF
           object Panel98: TPanel
             Left = 0
             Top = 0
-            Width = 1718
+            Width = 1824
             Height = 907
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 1718
             object Panel99: TPanel
               Left = 0
               Top = 0
-              Width = 1718
+              Width = 1824
               Height = 281
               Align = alTop
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitWidth = 1718
               object Panel100: TPanel
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 281
                 Align = alClient
                 TabOrder = 0
+                ExplicitWidth = 1718
                 object Panel101: TPanel
                   Left = 1
                   Top = 1
-                  Width = 1385
+                  Width = 1491
                   Height = 279
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 0
-                  object Label84: TLabel
-                    Left = 48
-                    Top = 85
-                    Width = 31
-                    Height = 13
-                    Caption = 'Clave:'
-                  end
+                  ExplicitWidth = 1385
                   object Label85: TLabel
                     Left = 48
                     Top = 38
@@ -2964,27 +3121,12 @@ object MainF: TMainF
                     Height = 13
                     Caption = 'Moneda:'
                   end
-                  object Edit17: TEdit
+                  object Edit1MonedaDesc: TEdit
                     Left = 184
                     Top = 35
                     Width = 465
                     Height = 21
                     TabOrder = 0
-                  end
-                  object Edit18: TEdit
-                    Left = 184
-                    Top = 82
-                    Width = 465
-                    Height = 21
-                    TabOrder = 1
-                  end
-                  object Button14: TButton
-                    Left = 681
-                    Top = 73
-                    Width = 241
-                    Height = 42
-                    Caption = 'Buscar Por Metodo'
-                    TabOrder = 2
                   end
                   object Button15: TButton
                     Left = 681
@@ -2992,53 +3134,84 @@ object MainF: TMainF
                     Width = 241
                     Height = 42
                     Caption = 'Buscar Por Nombre'
-                    TabOrder = 3
+                    TabOrder = 1
+                    OnClick = Button15Click
                   end
-                  object GroupBox17: TGroupBox
-                    Left = 24
-                    Top = 121
+                  object GroupBox13: TGroupBox
+                    Left = 26
+                    Top = 98
                     Width = 886
-                    Height = 129
-                    Caption = 'Metodo Pago Seleccionado'
-                    TabOrder = 4
-                    object Label86: TLabel
-                      Left = 24
-                      Top = 42
+                    Height = 137
+                    Caption = 'Moneda'
+                    TabOrder = 2
+                    object Label41: TLabel
+                      Left = 25
+                      Top = 30
+                      Width = 58
+                      Height = 13
+                      Caption = 'Descripcion:'
+                    end
+                    object LabelMonedaDescripcion: TLabel
+                      Left = 120
+                      Top = 30
                       Width = 36
                       Height = 13
-                      Caption = 'R.F.C.:'
+                      Caption = '---------'
                     end
-                    object Label87: TLabel
-                      Left = 24
-                      Top = 74
-                      Width = 64
+                    object LabelMonedaUso: TLabel
+                      Left = 120
+                      Top = 54
+                      Width = 36
                       Height = 13
-                      Caption = 'Razon Social:'
+                      Caption = '---------'
                     end
-                    object Label88: TLabel
-                      Left = 160
-                      Top = 42
-                      Width = 78
+                    object Label57: TLabel
+                      Left = 25
+                      Top = 50
+                      Width = 22
                       Height = 13
-                      Caption = 'LabelRFCCliente'
+                      Caption = 'Uso:'
                     end
-                    object Label89: TLabel
-                      Left = 160
-                      Top = 74
-                      Width = 31
+                    object LabelMonedaTipoEspecial: TLabel
+                      Left = 120
+                      Top = 78
+                      Width = 36
                       Height = 13
-                      Caption = 'Label5'
+                      Caption = '---------'
+                    end
+                    object Label61: TLabel
+                      Left = 25
+                      Top = 78
+                      Width = 65
+                      Height = 13
+                      Caption = 'Tipo Especial:'
+                    end
+                    object Label62: TLabel
+                      Left = 25
+                      Top = 103
+                      Width = 34
+                      Height = 13
+                      Caption = 'Activo:'
+                    end
+                    object CheckBoxMonedaActivo: TCheckBox
+                      Left = 120
+                      Top = 102
+                      Width = 97
+                      Height = 17
+                      Caption = 'Activo'
+                      TabOrder = 0
                     end
                   end
                 end
                 object Panel102: TPanel
-                  Left = 1386
+                  Left = 1492
                   Top = 1
                   Width = 331
                   Height = 279
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
+                  ExplicitLeft = 1386
                   object ButtonMonedaNuevo: TButton
                     Left = 86
                     Top = 79
@@ -3064,6 +3237,7 @@ object MainF: TMainF
                     Height = 42
                     Caption = 'Eliminar'
                     TabOrder = 2
+                    OnClick = ButtonMonedaEliminaClick
                   end
                 end
               end
@@ -3071,28 +3245,32 @@ object MainF: TMainF
             object Panel103: TPanel
               Left = 0
               Top = 281
-              Width = 1718
+              Width = 1824
               Height = 551
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitWidth = 1718
               object GridMoneda: TStringGrid
                 Left = 0
                 Top = 0
-                Width = 1718
+                Width = 1824
                 Height = 551
                 Align = alClient
+                Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
                 TabOrder = 0
+                OnClick = GridMonedaClick
               end
             end
             object Panel104: TPanel
               Left = 0
               Top = 832
-              Width = 1718
+              Width = 1824
               Height = 75
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitWidth = 1718
             end
           end
         end
@@ -3100,7 +3278,7 @@ object MainF: TMainF
       object PanelLog: TPanel
         Left = 1
         Top = 936
-        Width = 1726
+        Width = 1832
         Height = 144
         Align = alBottom
         Caption = 'PanelLog'
@@ -3110,7 +3288,7 @@ object MainF: TMainF
         object Memo1: TMemo
           Left = 1
           Top = 1
-          Width = 1724
+          Width = 1830
           Height = 142
           Align = alClient
           Lines.Strings = (
@@ -3123,14 +3301,14 @@ object MainF: TMainF
     end
   end
   object PanelLogin: TPanel
-    Left = 711
+    Left = 763
     Top = 384
     Width = 410
     Height = 201
     Anchors = []
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitLeft = 706
+    ExplicitLeft = 708
     ExplicitTop = 376
     object PanelUserPas: TPanel
       Left = 48
