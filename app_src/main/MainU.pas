@@ -617,6 +617,7 @@ begin
     ImpuestoEditaF := TImpuestoEditaF.Create(Application);
 
     try
+      ImpuestoEditaF.Load;
       ImpuestoEditaF.ShowModal;
     finally
       ImpuestoEditaF.Free;

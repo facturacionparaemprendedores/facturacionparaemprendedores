@@ -35,19 +35,7 @@ type
     EditImpuesto: TEdit;
     Label9: TLabel;
     ButtonSelectImpuesto: TButton;
-    Label10: TLabel;
-    Edit2: TEdit;
-    Button2: TButton;
-    Button3: TButton;
-    Edit3: TEdit;
-    Label11: TLabel;
-    Button4: TButton;
-    Edit4: TEdit;
-    Label12: TLabel;
     ButtonRegistrar: TButton;
-    Label13: TLabel;
-    Edit5: TEdit;
-    Button1: TButton;
     procedure ButtonCerrarClick(Sender: TObject);
   private
     { Private declarations }
