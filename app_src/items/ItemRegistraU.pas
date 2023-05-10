@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Global,
+  ItemSelecImpU;
 
 type
   TItemRegistraF = class(TForm)
@@ -37,6 +38,7 @@ type
     ButtonSelectImpuesto: TButton;
     ButtonRegistrar: TButton;
     procedure ButtonCerrarClick(Sender: TObject);
+    procedure ButtonSelectImpuestoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -53,6 +55,20 @@ implementation
 procedure TItemRegistraF.ButtonCerrarClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TItemRegistraF.ButtonSelectImpuestoClick(Sender: TObject);
+var
+  ItemSelecImpF: TItemSelecImpF;
+begin
+  ItemSelecImpF := TItemSelecImpF.Create(Application);
+
+  try
+    ItemSelecImpF.ShowModal;
+  finally
+    ItemSelecImpF.Free;
+  end;
+
 end;
 
 end.

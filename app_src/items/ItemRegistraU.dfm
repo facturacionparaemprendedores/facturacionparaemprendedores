@@ -3,8 +3,8 @@ object ItemRegistraF: TItemRegistraF
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Item Registra'
-  ClientHeight = 799
-  ClientWidth = 775
+  ClientHeight = 553
+  ClientWidth = 623
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,48 +16,49 @@ object ItemRegistraF: TItemRegistraF
   object PanelHoldAll: TPanel
     Left = 0
     Top = 0
-    Width = 775
-    Height = 799
+    Width = 623
+    Height = 553
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1118
-    ExplicitHeight = 781
+    ExplicitWidth = 769
+    ExplicitHeight = 790
     object PanelTop: TPanel
       Left = 0
       Top = 0
-      Width = 775
+      Width = 623
       Height = 49
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 1118
+      ExplicitTop = -6
+      ExplicitWidth = 775
     end
     object PanelMiddle: TPanel
       Left = 0
       Top = 49
-      Width = 775
-      Height = 675
+      Width = 623
+      Height = 429
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 1118
-      ExplicitHeight = 657
+      ExplicitWidth = 769
+      ExplicitHeight = 666
       object PanelItemDatos: TPanel
         Left = 0
         Top = 0
-        Width = 775
-        Height = 675
+        Width = 623
+        Height = 429
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 1118
-        ExplicitHeight = 657
+        ExplicitWidth = 769
+        ExplicitHeight = 666
         object GroupBox1: TGroupBox
-          Left = 24
-          Top = 73
-          Width = 697
-          Height = 536
+          Left = 16
+          Top = 25
+          Width = 577
+          Height = 432
           TabOrder = 0
           object Label2: TLabel
             Left = 20
@@ -69,7 +70,7 @@ object ItemRegistraF: TItemRegistraF
           object Label1: TLabel
             Left = 20
             Top = 28
-            Width = 127
+            Width = 128
             Height = 15
             Caption = 'Clave Producto Servixio:'
           end
@@ -194,10 +195,11 @@ object ItemRegistraF: TItemRegistraF
           object ButtonSelectImpuesto: TButton
             Left = 400
             Top = 352
-            Width = 121
+            Width = 137
             Height = 25
             Caption = 'Selecciona Impuesto'
             TabOrder = 9
+            OnClick = ButtonSelectImpuestoClick
           end
           object ButtonRegistrar: TButton
             Left = 416
@@ -212,17 +214,17 @@ object ItemRegistraF: TItemRegistraF
     end
     object PanelBottom: TPanel
       Left = 0
-      Top = 724
-      Width = 775
+      Top = 478
+      Width = 623
       Height = 75
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitTop = 706
-      ExplicitWidth = 1118
+      ExplicitTop = 715
+      ExplicitWidth = 769
       object ButtonCerrar: TButton
-        Left = 631
-        Top = 32
+        Left = 510
+        Top = 24
         Width = 75
         Height = 25
         Caption = 'Cerrar'

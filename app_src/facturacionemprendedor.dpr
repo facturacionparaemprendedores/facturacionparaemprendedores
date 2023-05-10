@@ -56,7 +56,8 @@ uses
   MonedaAdmin in 'classes\MonedaAdmin.pas',
   TimbresAdmin in 'classes\TimbresAdmin.pas',
   Global in 'shared\Global.pas',
-  TimbreSeleccionaPac in 'timbres\TimbreSeleccionaPac.pas' {TimbreSeleccionaPacF};
+  TimbreSeleccionaPac in 'timbres\TimbreSeleccionaPac.pas' {TimbreSeleccionaPacF},
+  ItemSelecImpU in 'items\ItemSelecImpU.pas' {ItemSelecImpF};
 
 {$R *.res}
 
@@ -98,6 +99,7 @@ begin
   Application.CreateForm(TMonedaRegistraF, MonedaRegistraF);
   Application.CreateForm(TMonedaEditaF, MonedaEditaF);
   Application.CreateForm(TTimbreSeleccionaPacF, TimbreSeleccionaPacF);
+  Application.CreateForm(TItemSelecImpF, ItemSelecImpF);
   Application.Run;
 end.
 

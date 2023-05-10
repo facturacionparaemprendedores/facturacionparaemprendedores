@@ -277,6 +277,10 @@
             <Form>TimbreSeleccionaPacF</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="items\ItemSelecImpU.pas">
+            <Form>ItemSelecImpF</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
