@@ -6,7 +6,7 @@ uses
 
 App, Config, DBC, User, Client,Item,
 Empresa, PacAdmin, CertAdmin, ImpuestosAdmin, MetodoPagoAdmin, FormaPagoAdmin,
-SeriesAdmin, LugarEexpAdmin, MonedaAdmin, TimbresAdmin;
+SeriesAdmin, LugarEexpAdmin, MonedaAdmin, TimbresAdmin, InformacionAduanera;
 
   procedure Initialize;// este es para inicializar la unidad es decir se llama siempre que se carge launidad
   procedure DeInitialize;
@@ -30,6 +30,7 @@ var
   LugarExpAdmin : TLugarExpAdmin;
   MonedaAdmin : TMonedaAdmin;
   TimbresAdmin : TTimbresAdmin;
+  InformacionAduanera: TInformacionAduanera;
 
 
 implementation
@@ -54,6 +55,7 @@ begin
   LugarExpAdmin := TLugarExpAdmin.Create;
   MonedaAdmin := TMonedaAdmin.Create;
   TimbresAdmin := TTimbresAdmin.Create;
+  InformacionAduanera := TInformacionAduanera.Create;
 
   Initialized := True;
 end;
@@ -78,6 +80,7 @@ begin
   LugarExpAdmin.Free;
   MonedaAdmin.Free;
   TimbresAdmin.Free;
+  InformacionAduanera.Free;
 
 end;
 

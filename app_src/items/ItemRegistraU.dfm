@@ -3,8 +3,8 @@ object ItemRegistraF: TItemRegistraF
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Item Registra'
-  ClientHeight = 553
-  ClientWidth = 623
+  ClientHeight = 529
+  ClientWidth = 731
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,49 +16,48 @@ object ItemRegistraF: TItemRegistraF
   object PanelHoldAll: TPanel
     Left = 0
     Top = 0
-    Width = 623
-    Height = 553
+    Width = 731
+    Height = 529
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 769
-    ExplicitHeight = 790
+    ExplicitWidth = 721
+    ExplicitHeight = 511
     object PanelTop: TPanel
       Left = 0
       Top = 0
-      Width = 623
+      Width = 731
       Height = 49
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = -6
-      ExplicitWidth = 775
+      ExplicitWidth = 721
     end
     object PanelMiddle: TPanel
       Left = 0
       Top = 49
-      Width = 623
-      Height = 429
+      Width = 731
+      Height = 425
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 769
-      ExplicitHeight = 666
+      ExplicitWidth = 721
+      ExplicitHeight = 407
       object PanelItemDatos: TPanel
         Left = 0
         Top = 0
-        Width = 623
-        Height = 429
+        Width = 731
+        Height = 425
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 769
-        ExplicitHeight = 666
+        ExplicitWidth = 721
+        ExplicitHeight = 407
         object GroupBox1: TGroupBox
-          Left = 16
+          Left = 24
           Top = 25
-          Width = 577
-          Height = 432
+          Width = 665
+          Height = 384
           TabOrder = 0
           object Label2: TLabel
             Left = 20
@@ -70,132 +69,132 @@ object ItemRegistraF: TItemRegistraF
           object Label1: TLabel
             Left = 20
             Top = 28
-            Width = 128
+            Width = 127
             Height = 15
             Caption = 'Clave Producto Servixio:'
           end
-          object Label4: TLabel
-            Left = 20
-            Top = 102
-            Width = 51
-            Height = 15
-            Caption = 'Cantidad:'
-          end
           object Label5: TLabel
             Left = 20
-            Top = 138
+            Top = 94
             Width = 73
             Height = 15
             Caption = 'Clave Unidad:'
           end
           object Label6: TLabel
             Left = 20
-            Top = 174
+            Top = 127
             Width = 41
             Height = 15
             Caption = 'Unidad:'
           end
           object Label7: TLabel
             Left = 20
-            Top = 207
+            Top = 160
             Width = 65
             Height = 15
             Caption = 'Descripcion:'
           end
           object Label3: TLabel
             Left = 20
-            Top = 240
-            Width = 74
+            Top = 224
+            Width = 36
             Height = 15
-            Caption = 'Valor Unitario:'
+            Caption = 'Precio:'
           end
           object Label8: TLabel
             Left = 20
-            Top = 275
-            Width = 45
+            Top = 255
+            Width = 92
             Height = 15
-            Caption = 'Importe:'
+            Caption = 'Objeto Impuesto:'
           end
           object Bevel1: TBevel
             Left = 24
-            Top = 328
-            Width = 409
+            Top = 290
+            Width = 513
             Height = 1
           end
           object Label9: TLabel
-            Left = 28
-            Top = 361
-            Width = 50
+            Left = 20
+            Top = 306
+            Width = 53
             Height = 15
-            Caption = 'Impuesto'
+            Caption = 'Impuesto:'
           end
-          object EditNoIdent: TEdit
-            Left = 168
+          object Label4: TLabel
+            Left = 20
+            Top = 191
+            Width = 94
+            Height = 15
+            Caption = 'Descripcion Larga'
+          end
+          object Label10: TLabel
+            Left = 20
+            Top = 338
+            Width = 119
+            Height = 15
+            Caption = 'Informacion Aduanera'
+          end
+          object EditConceptoNoIdent: TEdit
+            Left = 175
             Top = 62
-            Width = 200
-            Height = 23
-            TabOrder = 0
-          end
-          object EditClaveProdServ: TEdit
-            Left = 168
-            Top = 25
             Width = 200
             Height = 23
             TabOrder = 1
           end
-          object EditCantidad: TEdit
-            Left = 168
-            Top = 99
+          object EditConceptoClaveProdServ: TEdit
+            Left = 175
+            Top = 25
+            Width = 200
+            Height = 23
+            TabOrder = 0
+          end
+          object EditConceptoClaveUnidad: TEdit
+            Left = 175
+            Top = 91
             Width = 200
             Height = 23
             TabOrder = 2
           end
-          object EditClaveUnidad: TEdit
-            Left = 168
-            Top = 135
+          object EditConceptoUnidad: TEdit
+            Left = 175
+            Top = 124
             Width = 200
             Height = 23
             TabOrder = 3
           end
-          object EditUnidad: TEdit
-            Left = 168
-            Top = 171
+          object EditConceptoDesc: TEdit
+            Left = 175
+            Top = 157
             Width = 200
             Height = 23
             TabOrder = 4
           end
-          object EditDesc: TEdit
-            Left = 168
-            Top = 204
-            Width = 200
-            Height = 23
-            TabOrder = 5
-          end
-          object EditValorUnitario: TEdit
-            Left = 168
-            Top = 237
+          object EditConceptoPrecio: TEdit
+            Left = 175
+            Top = 221
             Width = 200
             Height = 23
             TabOrder = 6
           end
-          object EditImporte: TEdit
-            Left = 168
-            Top = 272
+          object EditConceptoObjetoImp: TEdit
+            Left = 175
+            Top = 252
             Width = 200
             Height = 23
             TabOrder = 7
           end
-          object EditImpuesto: TEdit
-            Left = 176
-            Top = 353
+          object EditConceptoImpuesto: TEdit
+            Left = 175
+            Top = 303
             Width = 200
             Height = 23
             TabOrder = 8
           end
           object ButtonSelectImpuesto: TButton
             Left = 400
-            Top = 352
-            Width = 137
+            Top = 302
+            Width = 233
             Height = 25
             Caption = 'Selecciona Impuesto'
             TabOrder = 9
@@ -207,24 +206,48 @@ object ItemRegistraF: TItemRegistraF
             Width = 105
             Height = 25
             Caption = 'Registrar'
+            TabOrder = 12
+            OnClick = ButtonRegistrarClick
+          end
+          object EditConceptoDescLarga: TEdit
+            Left = 175
+            Top = 188
+            Width = 265
+            Height = 23
+            TabOrder = 5
+          end
+          object EditConceptoInfoAduaPedimento: TEdit
+            Left = 175
+            Top = 335
+            Width = 200
+            Height = 23
             TabOrder = 10
+          end
+          object ButtonSelecInfoAduanera: TButton
+            Left = 400
+            Top = 333
+            Width = 233
+            Height = 25
+            Caption = 'Selecciona Informacion Aduanera'
+            TabOrder = 11
+            OnClick = ButtonSelecInfoAduaneraClick
           end
         end
       end
     end
     object PanelBottom: TPanel
       Left = 0
-      Top = 478
-      Width = 623
-      Height = 75
+      Top = 474
+      Width = 731
+      Height = 55
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitTop = 715
-      ExplicitWidth = 769
+      ExplicitTop = 456
+      ExplicitWidth = 721
       object ButtonCerrar: TButton
-        Left = 510
-        Top = 24
+        Left = 614
+        Top = 6
         Width = 75
         Height = 25
         Caption = 'Cerrar'

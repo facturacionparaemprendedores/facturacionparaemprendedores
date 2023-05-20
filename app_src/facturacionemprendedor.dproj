@@ -281,6 +281,19 @@
             <Form>ItemSelecImpF</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="informacionaduanera\InformacionAduanera.pas"/>
+        <DCCReference Include="informacionaduanera\InformacionAduaneraEdita.pas">
+            <Form>InformacionAduaneraEditaF</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="informacionaduanera\InformacionAduaneraRegistra.pas">
+            <Form>InformacionAduaneraRegistraF</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="items\ItemSelecInfoAduanera.pas">
+            <Form>ItemSelecInfoAduaneraF</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

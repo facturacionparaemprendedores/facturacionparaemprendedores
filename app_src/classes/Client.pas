@@ -116,6 +116,8 @@ begin
   Qry.Querry.ParamByName('EMAIL').AsString := Mail;
   Qry.Querry.ParamByName('ID_EMP').AsInteger := 1;
 
+    Qry.Querry.ParamByName('ID').AsInteger := Id;
+
   Qry.Querry.ExecSQL;
 end;
 

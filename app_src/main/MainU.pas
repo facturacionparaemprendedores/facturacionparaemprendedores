@@ -1,3 +1,4 @@
+
 unit MainU;
 
 interface
@@ -21,6 +22,8 @@ uses
 
    MetodoPagoEditaU, MetodoPAgoRegistraU,
    FormaPagoEditaU, FormaPAgoRegistraU,
+   InformacionAduaneraEdita,
+   InformacionAduaneraRegistra,
   Global, Vcl.Grids;
 
 type
@@ -156,8 +159,8 @@ type
     PanelClienteDatos: TPanel;
     Label26: TLabel;
     Label27: TLabel;
-    EditRFC: TEdit;
-    EditRazonSocial: TEdit;
+    EditItemClave: TEdit;
+    EditItemDescripcion: TEdit;
     ButtonItemBuscarPorDesc: TButton;
     ButtonItemBuscarPorClave: TButton;
     GroupBox3: TGroupBox;
@@ -374,7 +377,7 @@ type
     Panel101: TPanel;
     Label85: TLabel;
     Edit1MonedaDesc: TEdit;
-    Button15: TButton;
+    ButtonBuscarPorMoneda: TButton;
     Panel102: TPanel;
     ButtonMonedaNuevo: TButton;
     ButtonMonedaEdita: TButton;
@@ -412,6 +415,25 @@ type
     LabelProdPrecio: TLabel;
     LabelProdUnidad: TLabel;
     Unidad: TLabel;
+    TabSheetInformacionAduanera: TTabSheet;
+    PanelInfoAduanera: TPanel;
+    Panel70: TPanel;
+    Panel71: TPanel;
+    Panel72: TPanel;
+    Panel73: TPanel;
+    Label64: TLabel;
+    EditInfoAduaneraNumPedimento: TEdit;
+    ButtonBuscarPorNumeroPedimento: TButton;
+    GroupBox17: TGroupBox;
+    Label65: TLabel;
+    LabelNumeroPedimento: TLabel;
+    Panel74: TPanel;
+    ButtonInfoAduaneraRegistra: TButton;
+    ButtonInfoAduaneraEdita: TButton;
+    ButtonInfoAduaneraElimina: TButton;
+    Panel75: TPanel;
+    GridInfoAduanera: TStringGrid;
+    Panel76: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure PanelWorkTopButtonClick(Sender: TObject);
     procedure ButtonLoginClick(Sender: TObject);
@@ -460,6 +482,8 @@ type
     procedure GetAllLugExp;
     procedure GetAllMonedas;
     procedure GetAllTimbres;
+    procedure GetAllInformacionAduanera;
+    procedure GetAllArticulos;
     procedure ButtonPacNuevoClick(Sender: TObject);
     procedure ButtonPacEditarClick(Sender: TObject);
     procedure GridPacsClick(Sender: TObject);
@@ -502,11 +526,18 @@ type
     procedure ButtonBusarLuarExpClick(Sender: TObject);
     procedure GridLugarExpedClick(Sender: TObject);
     procedure ButtonMonedaEliminaClick(Sender: TObject);
-    procedure Button15Click(Sender: TObject);
+    procedure ButtonBuscarPorMonedaClick(Sender: TObject);
     procedure GridMonedaClick(Sender: TObject);
     procedure ButtonTimbresPorPACClick(Sender: TObject);
     procedure GridTimbresClick(Sender: TObject);
     procedure ButtonTimbreEliminaClick(Sender: TObject);
+    procedure PanelInfoAduaneraClick(Sender: TObject);
+    procedure GridInfoAduaneraClick(Sender: TObject);
+    procedure ButtonInfoAduaneraRegistraClick(Sender: TObject);
+    procedure ButtonInfoAduaneraEditaClick(Sender: TObject);
+    procedure ButtonInfoAduaneraEliminaClick(Sender: TObject);
+    procedure ButtonBuscarPorNumeroPedimentoClick(Sender: TObject);
+    procedure GridItemsClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -645,7 +676,7 @@ begin
   end;
 end;
 
-procedure TMainF.Button15Click(Sender: TObject);
+procedure TMainF.ButtonBuscarPorMonedaClick(Sender: TObject);
 var
   iNumero : Integer;
   i: Integer;
@@ -692,6 +723,41 @@ begin
 
 
     Global.MonedaAdmin.Qry.Querry.Next;
+  end;
+
+end;
+
+procedure TMainF.ButtonBuscarPorNumeroPedimentoClick(Sender: TObject);
+var
+  iNumero : Integer;
+  i: Integer;
+begin
+   iNumero := 0;
+
+  GridInfoAduanera.ColCount := 6;
+                       //columna
+  GridInfoAduanera.ColWidths[0] := 30;
+  GridInfoAduanera.ColWidths[1] := 20;
+  GridInfoAduanera.ColWidths[2] := 300;
+
+                 //columna  , fila
+  GridInfoAduanera.Cells[0,0] := 'Num';
+  GridInfoAduanera.Cells[1,0] := 'ID';
+  GridInfoAduanera.Cells[2,0] := 'Numero de Pedimento';
+
+
+  Global.InformacionAduanera.GetByNumeroPedimento(EditInfoAduaneraNumPedimento.Text);
+
+  for i := 0 to Global.InformacionAduanera.Qry.Querry.RecordCount -1 do
+  begin
+    Inc(iNumero);
+    GridInfoAduanera.RowCount := iNumero + 1;
+    GridInfoAduanera.Cells[0, iNumero] := IntToStr(iNumero);
+    GridInfoAduanera.Cells[1, iNumero] := Global.InformacionAduanera.Qry.Querry.FieldByName('ID').AsString;
+    GridInfoAduanera.Cells[2, iNumero] := Global.InformacionAduanera.Qry.Querry.FieldByName('NUMEROPEDIMENTO').AsString;
+
+
+    Global.InformacionAduanera.Qry.Querry.Next;
   end;
 
 end;
@@ -756,6 +822,58 @@ begin
     Global.TimbresAdmin.Qry.Querry.Next;
   end;
 end;
+
+procedure TMainF.ButtonInfoAduaneraEditaClick(Sender: TObject);
+var
+  InformacionAduaneraEditaF: TInformacionAduaneraEditaF;
+begin
+  if   Global.InformacionAduanera.Id <> 0 then
+  begin
+    InformacionAduaneraEditaF := TInformacionAduaneraEditaF.Create(Application);
+    try
+      InformacionAduaneraEditaF.Load;
+      InformacionAduaneraEditaF.ShowModal;
+    finally
+      InformacionAduaneraEditaF.Free;
+    end;
+    GetAllInformacionAduanera;
+  end
+  else
+  begin
+    ShowMessage('Selecciona un Numero de Pedimento a Editar');
+  end;
+
+end;
+
+procedure TMainF.ButtonInfoAduaneraEliminaClick(Sender: TObject);
+begin
+  if   Global.InformacionAduanera.Id <> 0 then
+  begin
+    Global.InformacionAduanera.Delete;
+    GetAllInformacionAduanera;
+  end
+  else
+  begin
+    ShowMessage('Selecciona un Moneda a Eliminar');
+  end;
+
+end;
+
+procedure TMainF.ButtonInfoAduaneraRegistraClick(Sender: TObject);
+var
+  InformacionAduaneraRegistraF: TInformacionAduaneraRegistraF;
+begin
+  InformacionAduaneraRegistraF := TInformacionAduaneraRegistraF.Create(Application);
+  try
+    InformacionAduaneraRegistraF.ShowModal;
+  finally
+    InformacionAduaneraRegistraF.Free;
+  end;
+
+  GetAllInformacionAduanera;
+end;
+
+
 
 procedure TMainF.ButtonBusarLuarExpClick(Sender: TObject);
 var
@@ -1075,25 +1193,20 @@ begin
   iNumero := 0;
   Global.ImpuestosAdmin.GetAll;
 
-  GridImpuestos.ColCount := 7;
+  GridImpuestos.ColCount := 5;
                        //columna
   GridImpuestos.ColWidths[0] := 30;
   GridImpuestos.ColWidths[1] := 30;
   GridImpuestos.ColWidths[2] := 100;
   GridImpuestos.ColWidths[3] := 100;
   GridImpuestos.ColWidths[4] := 100;
-  GridImpuestos.ColWidths[5] := 100;
-  GridImpuestos.ColWidths[6] := 100;
 
                  //columna  , fila
   GridImpuestos.Cells[0,0] := 'Num';
   GridImpuestos.Cells[1,0] := 'ID';
-  GridImpuestos.Cells[2,0] := 'Base';
-  GridImpuestos.Cells[3,0] := 'Impuesto';
-  GridImpuestos.Cells[4,0] := 'Tipo o Factor';
-  GridImpuestos.Cells[5,0] := 'Tasa o Cueota';
-  GridImpuestos.Cells[6,0] := 'Importe';
-
+  GridImpuestos.Cells[2,0] := 'Impuesto';
+  GridImpuestos.Cells[3,0] := 'Tipo o Factor';
+  GridImpuestos.Cells[4,0] := 'Tasa o Cuota';
 
   for i := 0 to Global.ImpuestosAdmin.Qry.Querry.RecordCount -1 do
   begin
@@ -1101,11 +1214,9 @@ begin
     GridImpuestos.RowCount := iNumero + 1;
     GridImpuestos.Cells[0, iNumero] := IntToStr(iNumero);
     GridImpuestos.Cells[1, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('ID').AsString;
-    GridImpuestos.Cells[2, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('BASE').AsString;
-    GridImpuestos.Cells[3, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('IMPUESTO').AsString;
-    GridImpuestos.Cells[4, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('TIPOFACTOR').AsString;
-    GridImpuestos.Cells[5, iNumero] := FloatToStr(Global.ImpuestosAdmin.Qry.Querry.FieldByName('TASAOCUOTA').AsFloat);
-    GridImpuestos.Cells[6, iNumero] := FloatToStr(Global.ImpuestosAdmin.Qry.Querry.FieldByName('IMPORTE').AsFloat);
+    GridImpuestos.Cells[2, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('IMPUESTO').AsString;
+    GridImpuestos.Cells[3, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('TIPOFACTOR').AsString;
+    GridImpuestos.Cells[4, iNumero] := FloatToStr(Global.ImpuestosAdmin.Qry.Querry.FieldByName('TASAOCUOTA').AsFloat);
 
     Global.ImpuestosAdmin.Qry.Querry.Next;
   end;
@@ -1408,8 +1519,130 @@ begin
   end;
 end;
 
-procedure TMainF.ButtonPacBuscarPorPacClick(Sender: TObject);
+procedure TMainF.GetAllInformacionAduanera;
+var
+  iNumero : Integer;
+  i: Integer;
+begin
+  iNumero := 0;
 
+//  Global.InformacionAduanera.GetByNumeroPedimento(EditInfoAduaneraNumPedimento.Text);
+  Global.InformacionAduanera.Get;
+
+  GridInfoAduanera.ColCount := 5;
+                       //columna
+  GridInfoAduanera.ColWidths[0] := 30;
+  GridInfoAduanera.ColWidths[1] := 20;
+  GridInfoAduanera.ColWidths[2] := 300;
+
+                 //columna  , fila
+  GridInfoAduanera.Cells[0,0] := 'Num';
+  GridInfoAduanera.Cells[1,0] := 'ID';
+  GridInfoAduanera.Cells[2,0] := 'Informacion Aduanera';
+
+
+  for i := 0 to Global.InformacionAduanera.Qry.Querry.RecordCount -1 do
+  begin
+    Inc(iNumero);
+    GridInfoAduanera.RowCount := iNumero + 1;
+    GridInfoAduanera.Cells[0, iNumero] := IntToStr(iNumero);
+    GridInfoAduanera.Cells[1, iNumero] := Global.InformacionAduanera.Qry.Querry.FieldByName('ID').AsString;
+    GridInfoAduanera.Cells[2, iNumero] := Global.InformacionAduanera.Qry.Querry.FieldByName('NUMEROPEDIMENTO').AsString;
+
+    Global.InformacionAduanera.Qry.Querry.Next;
+  end;
+end;
+
+
+procedure TMainF.GetAllArticulos;
+var
+  iNumero : Integer;
+  i: Integer;
+begin
+  iNumero := 0;
+
+  Global.Item.Get;
+
+  GridItems.ColCount := 21;
+                       //columna
+  GridItems.ColWidths[0] := 30;
+  GridItems.ColWidths[1] := 50;
+  GridItems.ColWidths[2] := 200;
+  GridItems.ColWidths[3] := 200;
+  GridItems.ColWidths[4] := 200;
+  GridItems.ColWidths[5] := 200;
+  GridItems.ColWidths[6] := 200;
+  GridItems.ColWidths[7] := 200;
+  GridItems.ColWidths[8] := 200;
+  GridItems.ColWidths[9] := 500;
+  GridItems.ColWidths[10] := 200;
+  GridItems.ColWidths[11] := 200;
+  GridItems.ColWidths[12] := 200;
+  GridItems.ColWidths[13] := 200;
+  GridItems.ColWidths[14] := 200;
+  GridItems.ColWidths[15] := 200;
+  GridItems.ColWidths[16] := 200;
+  GridItems.ColWidths[17] := 200;
+  GridItems.ColWidths[18] := 200;
+  GridItems.ColWidths[19] := 200;
+  GridItems.ColWidths[20] := 200;
+
+                 //columna  , fila
+  GridItems.Cells[0,0] := 'Num';
+  GridItems.Cells[1,0] := 'ID_CONCEPTO'; //integer
+  GridItems.Cells[2,0] := 'CLAVEPRODSERV';         //string
+  GridItems.Cells[3,0] := 'ID_IMPUESTO'; // integer
+  GridItems.Cells[4,0] := 'CONCEPTO_ID_INFORMACION_ADUANERA'; // integer
+  GridItems.Cells[5,0] := 'ID_EMPCONCEPTO'; // integer
+  GridItems.Cells[6,0] := 'OBJETOIMP';
+  GridItems.Cells[7,0] := 'PRECIO';//puede ser currency
+  GridItems.Cells[8,0] := 'DESCRIPCION';//string
+  GridItems.Cells[9,0] := 'DESC_LARGA';//string
+  GridItems.Cells[10,0] := 'UNIDAD';//string
+  GridItems.Cells[11,0] := 'CLAVEUNIDAD'; //string
+  GridItems.Cells[12,0] := 'NOIDENTIFICACION'; // string
+  GridItems.Cells[13,0] := 'ID_IMP';  //integr
+  GridItems.Cells[14,0] := 'IMPUESTO'; // string nombre del impuesto
+  GridItems.Cells[15,0] := 'TIPOFACTOR';//string
+  GridItems.Cells[16,0] := 'TASAOCUOTA'; //curency
+  GridItems.Cells[17,0] := 'ID_EMPIMP'; // integer
+  GridItems.Cells[18,0] := 'INFOADU_ID';//integer
+  GridItems.Cells[19,0] := 'NUMEROPEDIMENTO'; // string
+  GridItems.Cells[20,0] := 'ID_EMPINFOADU';/// integer
+
+
+  for i := 0 to Global.Item.Qry.Querry.RecordCount -1 do
+  begin
+    Inc(iNumero);
+    GridItems.RowCount := iNumero + 1;
+    GridItems.Cells[0, iNumero] := IntToStr(iNumero);
+    GridItems.Cells[1, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_CONCEPTO').AsString; //integer
+    GridItems.Cells[2, iNumero] := Global.Item.Qry.Querry.FieldByName('CLAVEPRODSERV').AsString;         //string
+    GridItems.Cells[3, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_IMPUESTO').AsString; // integer
+    GridItems.Cells[4, iNumero] := Global.Item.Qry.Querry.FieldByName('CONCEPTO_ID_INFORMACION_ADUANERA').AsString; // integer
+    GridItems.Cells[5, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_EMPCONCEPTO').AsString; // integer
+    GridItems.Cells[6, iNumero] := Global.Item.Qry.Querry.FieldByName('OBJETOIMP').AsString;
+    GridItems.Cells[7, iNumero] := Global.Item.Qry.Querry.FieldByName('PRECIO').AsString;//puede ser currency
+    GridItems.Cells[8, iNumero] := Global.Item.Qry.Querry.FieldByName('DESCRIPCION').AsString;//string
+    GridItems.Cells[9, iNumero] := Global.Item.Qry.Querry.FieldByName('DESC_LARGA').AsString;//string
+    GridItems.Cells[10, iNumero] := Global.Item.Qry.Querry.FieldByName('UNIDAD').AsString;//string
+    GridItems.Cells[11, iNumero] := Global.Item.Qry.Querry.FieldByName('CLAVEUNIDAD').AsString; //string
+    GridItems.Cells[12, iNumero] := Global.Item.Qry.Querry.FieldByName('NOIDENTIFICACION').AsString; // string
+    GridItems.Cells[13, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_IMP').AsString;  //integr
+    GridItems.Cells[14, iNumero] := Global.Item.Qry.Querry.FieldByName('IMPUESTO').AsString; // string nombre del impuesto
+    GridItems.Cells[15, iNumero] := Global.Item.Qry.Querry.FieldByName('TIPOFACTOR').AsString;//string
+    GridItems.Cells[16, iNumero] := Global.Item.Qry.Querry.FieldByName('TASAOCUOTA').AsString; //curency
+    GridItems.Cells[17, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_EMPIMP').AsString; // integer
+    GridItems.Cells[18, iNumero] := Global.Item.Qry.Querry.FieldByName('INFOADU_ID').AsString;//integer
+    GridItems.Cells[19, iNumero] := Global.Item.Qry.Querry.FieldByName('NUMEROPEDIMENTO').AsString; // string
+    GridItems.Cells[20, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_EMPINFOADU').AsString;/// integer
+
+
+    Global.Item.Qry.Querry.Next;
+  end;
+end;
+
+procedure TMainF.ButtonPacBuscarPorPacClick(Sender: TObject);
 var
   iNumero : Integer;
   i: Integer;
@@ -1573,31 +1806,226 @@ begin
 end;
 
 procedure TMainF.ButtonItemBuscarPorClaveClick(Sender: TObject);
+var
+  iNumero : Integer;
+  i: Integer;
 begin
-//
+  iNumero := 0;
+  Global.Item.GetByClave(EditItemClave.Text);
+
+  GridItems.ColCount := 21;
+                       //columna
+  GridItems.ColWidths[0] := 30;
+  GridItems.ColWidths[1] := 50;
+  GridItems.ColWidths[2] := 200;
+  GridItems.ColWidths[3] := 200;
+  GridItems.ColWidths[4] := 200;
+  GridItems.ColWidths[5] := 200;
+  GridItems.ColWidths[6] := 200;
+  GridItems.ColWidths[7] := 200;
+  GridItems.ColWidths[8] := 200;
+  GridItems.ColWidths[9] := 500;
+  GridItems.ColWidths[10] := 200;
+  GridItems.ColWidths[11] := 200;
+  GridItems.ColWidths[12] := 200;
+  GridItems.ColWidths[13] := 200;
+  GridItems.ColWidths[14] := 200;
+  GridItems.ColWidths[15] := 200;
+  GridItems.ColWidths[16] := 200;
+  GridItems.ColWidths[17] := 200;
+  GridItems.ColWidths[18] := 200;
+  GridItems.ColWidths[19] := 200;
+  GridItems.ColWidths[20] := 200;
+
+                 //columna  , fila
+  GridItems.Cells[0,0] := 'Num';
+  GridItems.Cells[1,0] := 'ID_CONCEPTO'; //integer
+  GridItems.Cells[2,0] := 'CLAVEPRODSERV';         //string
+  GridItems.Cells[3,0] := 'ID_IMPUESTO'; // integer
+  GridItems.Cells[4,0] := 'CONCEPTO_ID_INFORMACION_ADUANERA'; // integer
+  GridItems.Cells[5,0] := 'ID_EMPCONCEPTO'; // integer
+  GridItems.Cells[6,0] := 'OBJETOIMP';
+  GridItems.Cells[7,0] := 'PRECIO';//puede ser currency
+  GridItems.Cells[8,0] := 'DESCRIPCION';//string
+  GridItems.Cells[9,0] := 'DESC_LARGA';//string
+  GridItems.Cells[10,0] := 'UNIDAD';//string
+  GridItems.Cells[11,0] := 'CLAVEUNIDAD'; //string
+  GridItems.Cells[12,0] := 'NOIDENTIFICACION'; // string
+  GridItems.Cells[13,0] := 'ID_IMP';  //integr
+  GridItems.Cells[14,0] := 'IMPUESTO'; // string nombre del impuesto
+  GridItems.Cells[15,0] := 'TIPOFACTOR';//string
+  GridItems.Cells[16,0] := 'TASAOCUOTA'; //curency
+  GridItems.Cells[17,0] := 'ID_EMPIMP'; // integer
+  GridItems.Cells[18,0] := 'INFOADU_ID';//integer
+  GridItems.Cells[19,0] := 'NUMEROPEDIMENTO'; // string
+  GridItems.Cells[20,0] := 'ID_EMPINFOADU';/// integer
+
+
+  for i := 0 to Global.Item.Qry.Querry.RecordCount -1 do
+  begin
+    Inc(iNumero);
+    GridItems.RowCount := iNumero + 1;
+    GridItems.Cells[0, iNumero] := IntToStr(iNumero);
+    GridItems.Cells[1, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_CONCEPTO').AsString; //integer
+    GridItems.Cells[2, iNumero] := Global.Item.Qry.Querry.FieldByName('CLAVEPRODSERV').AsString;         //string
+    GridItems.Cells[3, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_IMPUESTO').AsString; // integer
+    GridItems.Cells[4, iNumero] := Global.Item.Qry.Querry.FieldByName('CONCEPTO_ID_INFORMACION_ADUANERA').AsString; // integer
+    GridItems.Cells[5, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_EMPCONCEPTO').AsString; // integer
+    GridItems.Cells[6, iNumero] := Global.Item.Qry.Querry.FieldByName('OBJETOIMP').AsString;
+    GridItems.Cells[7, iNumero] := Global.Item.Qry.Querry.FieldByName('PRECIO').AsString;//puede ser currency
+    GridItems.Cells[8, iNumero] := Global.Item.Qry.Querry.FieldByName('DESCRIPCION').AsString;//string
+    GridItems.Cells[9, iNumero] := Global.Item.Qry.Querry.FieldByName('DESC_LARGA').AsString;//string
+    GridItems.Cells[10, iNumero] := Global.Item.Qry.Querry.FieldByName('UNIDAD').AsString;//string
+    GridItems.Cells[11, iNumero] := Global.Item.Qry.Querry.FieldByName('CLAVEUNIDAD').AsString; //string
+    GridItems.Cells[12, iNumero] := Global.Item.Qry.Querry.FieldByName('NOIDENTIFICACION').AsString; // string
+    GridItems.Cells[13, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_IMP').AsString;  //integr
+    GridItems.Cells[14, iNumero] := Global.Item.Qry.Querry.FieldByName('IMPUESTO').AsString; // string nombre del impuesto
+    GridItems.Cells[15, iNumero] := Global.Item.Qry.Querry.FieldByName('TIPOFACTOR').AsString;//string
+    GridItems.Cells[16, iNumero] := Global.Item.Qry.Querry.FieldByName('TASAOCUOTA').AsString; //curency
+    GridItems.Cells[17, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_EMPIMP').AsString; // integer
+    GridItems.Cells[18, iNumero] := Global.Item.Qry.Querry.FieldByName('INFOADU_ID').AsString;//integer
+    GridItems.Cells[19, iNumero] := Global.Item.Qry.Querry.FieldByName('NUMEROPEDIMENTO').AsString; // string
+    GridItems.Cells[20, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_EMPINFOADU').AsString;/// integer
+
+
+    Global.Item.Qry.Querry.Next;
+  end;
 end;
 
 procedure TMainF.ButtonItemBuscarPorDescClick(Sender: TObject);
+var
+  iNumero : Integer;
+  i: Integer;
 begin
-//
+  iNumero := 0;
+  Global.Item.GetByDescripcion(EditItemDescripcion.Text);
+
+  GridItems.ColCount := 21;
+                       //columna
+  GridItems.ColWidths[0] := 30;
+  GridItems.ColWidths[1] := 50;
+  GridItems.ColWidths[2] := 200;
+  GridItems.ColWidths[3] := 200;
+  GridItems.ColWidths[4] := 200;
+  GridItems.ColWidths[5] := 200;
+  GridItems.ColWidths[6] := 200;
+  GridItems.ColWidths[7] := 200;
+  GridItems.ColWidths[8] := 200;
+  GridItems.ColWidths[9] := 500;
+  GridItems.ColWidths[10] := 200;
+  GridItems.ColWidths[11] := 200;
+  GridItems.ColWidths[12] := 200;
+  GridItems.ColWidths[13] := 200;
+  GridItems.ColWidths[14] := 200;
+  GridItems.ColWidths[15] := 200;
+  GridItems.ColWidths[16] := 200;
+  GridItems.ColWidths[17] := 200;
+  GridItems.ColWidths[18] := 200;
+  GridItems.ColWidths[19] := 200;
+  GridItems.ColWidths[20] := 200;
+
+
+                 //columna  , fila
+  GridItems.Cells[0,0] := 'Num';
+  GridItems.Cells[1,0] := 'ID_CONCEPTO'; //integer
+  GridItems.Cells[2,0] := 'CLAVEPRODSERV';         //string
+  GridItems.Cells[3,0] := 'ID_IMPUESTO'; // integer
+  GridItems.Cells[4,0] := 'CONCEPTO_ID_INFORMACION_ADUANERA'; // integer
+  GridItems.Cells[5,0] := 'ID_EMPCONCEPTO'; // integer
+  GridItems.Cells[6,0] := 'OBJETOIMP';
+  GridItems.Cells[7,0] := 'PRECIO';//puede ser currency
+  GridItems.Cells[8,0] := 'DESCRIPCION';//string
+  GridItems.Cells[9,0] := 'DESC_LARGA';//string
+  GridItems.Cells[10,0] := 'UNIDAD';//string
+  GridItems.Cells[11,0] := 'CLAVEUNIDAD'; //string
+  GridItems.Cells[12,0] := 'NOIDENTIFICACION'; // string
+  GridItems.Cells[13,0] := 'ID_IMP';  //integr
+  GridItems.Cells[14,0] := 'IMPUESTO'; // string nombre del impuesto
+  GridItems.Cells[15,0] := 'TIPOFACTOR';//string
+  GridItems.Cells[16,0] := 'TASAOCUOTA'; //curency
+  GridItems.Cells[17,0] := 'ID_EMPIMP'; // integer
+  GridItems.Cells[18,0] := 'INFOADU_ID';//integer
+  GridItems.Cells[19,0] := 'NUMEROPEDIMENTO'; // string
+  GridItems.Cells[20,0] := 'ID_EMPINFOADU';/// integer
+
+
+  for i := 0 to Global.Item.Qry.Querry.RecordCount -1 do
+  begin
+    Inc(iNumero);
+    GridItems.RowCount := iNumero + 1;
+    GridItems.Cells[0, iNumero] := IntToStr(iNumero);
+    GridItems.Cells[1, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_CONCEPTO').AsString; //integer
+    GridItems.Cells[2, iNumero] := Global.Item.Qry.Querry.FieldByName('CLAVEPRODSERV').AsString;         //string
+    GridItems.Cells[3, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_IMPUESTO').AsString; // integer
+    GridItems.Cells[4, iNumero] := Global.Item.Qry.Querry.FieldByName('CONCEPTO_ID_INFORMACION_ADUANERA').AsString; // integer
+    GridItems.Cells[5, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_EMPCONCEPTO').AsString; // integer
+    GridItems.Cells[6, iNumero] := Global.Item.Qry.Querry.FieldByName('OBJETOIMP').AsString;
+    GridItems.Cells[7, iNumero] := Global.Item.Qry.Querry.FieldByName('PRECIO').AsString;//puede ser currency
+    GridItems.Cells[8, iNumero] := Global.Item.Qry.Querry.FieldByName('DESCRIPCION').AsString;//string
+    GridItems.Cells[9, iNumero] := Global.Item.Qry.Querry.FieldByName('DESC_LARGA').AsString;//string
+    GridItems.Cells[10, iNumero] := Global.Item.Qry.Querry.FieldByName('UNIDAD').AsString;//string
+    GridItems.Cells[11, iNumero] := Global.Item.Qry.Querry.FieldByName('CLAVEUNIDAD').AsString; //string
+    GridItems.Cells[12, iNumero] := Global.Item.Qry.Querry.FieldByName('NOIDENTIFICACION').AsString; // string
+    GridItems.Cells[13, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_IMP').AsString;  //integr
+    GridItems.Cells[14, iNumero] := Global.Item.Qry.Querry.FieldByName('IMPUESTO').AsString; // string nombre del impuesto
+    GridItems.Cells[15, iNumero] := Global.Item.Qry.Querry.FieldByName('TIPOFACTOR').AsString;//string
+    GridItems.Cells[16, iNumero] := Global.Item.Qry.Querry.FieldByName('TASAOCUOTA').AsString; //curency
+    GridItems.Cells[17, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_EMPIMP').AsString; // integer
+    GridItems.Cells[18, iNumero] := Global.Item.Qry.Querry.FieldByName('INFOADU_ID').AsString;//integer
+    GridItems.Cells[19, iNumero] := Global.Item.Qry.Querry.FieldByName('NUMEROPEDIMENTO').AsString; // string
+    GridItems.Cells[20, iNumero] := Global.Item.Qry.Querry.FieldByName('ID_EMPINFOADU').AsString;/// integer
+
+
+    Global.Item.Qry.Querry.Next;
+  end;
 end;
 
 procedure TMainF.ButtonItemEditaClick(Sender: TObject);
 var
   ItemEditaF: TItemEditaF;
 begin
-  ItemEditaF := TItemEditaF.Create(Application);
 
-  try
-    ItemEditaF.ShowModal;
-  finally
-    ItemEditaF.Free;
+  if Global.Item.Id_Concepto <> 0 then
+  begin
+    ItemEditaF := TItemEditaF.Create(Application);
+
+    Global.Item.GetByID(Global.Item.Id_Concepto);
+
+    ItemEditaF.EditConceptoClaveProdServ.Text:=Global.Item.ClaveProdServ;
+    ItemEditaF.EditConceptoNoIdent.Text:=Global.Item.NoIdentificacion;
+    ItemEditaF.EditConceptoClaveUnidad.Text:=Global.Item.ClaveUnidad;
+    ItemEditaF.EditConceptoUnidad.Text:=Global.Item.Unidad;
+    ItemEditaF.EditConceptoDesc.Text:=Global.Item.Descripcion;
+    ItemEditaF.EditConceptoDescLarga.Text:=Global.Item.Desc_Larga;
+    ItemEditaF.EditConceptoPrecio.Text:= CurrToStr(Global.Item.Precio);
+    ItemEditaF.EditConceptoObjetoImp.Text:=Global.Item.Objetoimp;
+
+
+    ItemEditaF.EditConceptoImpuesto.Text:=Global.Item.Impuesto;
+    ItemEditaF.EditConceptoInfoAduaPedimento.Text:=Global.Item.NumeroPedimento;
+
+
+
+
+    try
+      ItemEditaF.ShowModal;
+    finally
+      ItemEditaF.Free;
+    end;
+         GetAllArticulos;
+  end
+  else
+  begin
+    ShowMessage('Selecciona un Articulo a Editar');
   end;
+
+
 end;
 
 procedure TMainF.ButtonItemEliminaClick(Sender: TObject);
 begin
 //
+  GetAllArticulos;
 end;
 
 procedure TMainF.ButtonEliminarClick(Sender: TObject);
@@ -1726,24 +2154,21 @@ var
 begin
   iNumero := 0;
 
-  GridImpuestos.ColCount := 7;
+  GridImpuestos.ColCount := 5;
                        //columna
   GridImpuestos.ColWidths[0] := 30;
   GridImpuestos.ColWidths[1] := 300;
   GridImpuestos.ColWidths[2] := 300;
   GridImpuestos.ColWidths[3] := 300;
   GridImpuestos.ColWidths[4] := 50;
-  GridImpuestos.ColWidths[5] := 50;
-  GridImpuestos.ColWidths[6] := 50;
+
 
                  //columna  , fila
   GridImpuestos.Cells[0,0] := 'Num';
   GridImpuestos.Cells[1,0] := 'ID';
-  GridImpuestos.Cells[2,0] := 'Base';
-  GridImpuestos.Cells[3,0] := 'Impuesto';
-  GridImpuestos.Cells[4,0] := 'Tipo o Factor';
-  GridImpuestos.Cells[5,0] := 'Tasa o Cueota';
-  GridImpuestos.Cells[6,0] := 'Importe';
+  GridImpuestos.Cells[2,0] := 'Impuesto';
+  GridImpuestos.Cells[3,0] := 'Tipo o Factor';
+  GridImpuestos.Cells[4,0] := 'Tasa o Cuota';
 
   Global.ImpuestosAdmin.GetByImpuesto(EditImpuestoNombre.Text);
 
@@ -1753,11 +2178,9 @@ begin
     GridImpuestos.RowCount := iNumero + 1;
     GridImpuestos.Cells[0, iNumero] := IntToStr(iNumero);
     GridImpuestos.Cells[1, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('ID').AsString;
-    GridImpuestos.Cells[2, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('BASE').AsString;
-    GridImpuestos.Cells[3, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('IMPUESTO').AsString;
-    GridImpuestos.Cells[4, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('TIPOFACTOR').AsString;
-    GridImpuestos.Cells[5, iNumero] := FloatToStr(Global.ImpuestosAdmin.Qry.Querry.FieldByName('TASAOCUOTA').AsFloat);
-    GridImpuestos.Cells[6, iNumero] := FloatToStr(Global.ImpuestosAdmin.Qry.Querry.FieldByName('IMPORTE').AsFloat);
+    GridImpuestos.Cells[2, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('IMPUESTO').AsString;
+    GridImpuestos.Cells[3, iNumero] := Global.ImpuestosAdmin.Qry.Querry.FieldByName('TIPOFACTOR').AsString;
+    GridImpuestos.Cells[4, iNumero] := FloatToStr(Global.ImpuestosAdmin.Qry.Querry.FieldByName('TASAOCUOTA').AsFloat);
 
     Global.ImpuestosAdmin.Qry.Querry.Next;
   end;
@@ -1976,6 +2399,7 @@ begin
   finally
     ItemRegistraF.Free;
   end;
+  GetAllArticulos;
 end;
 
 procedure TMainF.ButtonRegistrarNuevoClienteClick(Sender: TObject);
@@ -2175,11 +2599,32 @@ end;
 procedure TMainF.GridImpuestosClick(Sender: TObject);
 begin
   Global.ImpuestosAdmin.Id := StrToInt(GridImpuestos.Cells[1, GridImpuestos.Row]);
-  Global.ImpuestosAdmin.Impuesto := GridImpuestos.Cells[3, GridImpuestos.Row];
-  Global.ImpuestosAdmin.TasaOCuota := StrToFloat(GridImpuestos.Cells[5, GridImpuestos.Row]);
+  Global.ImpuestosAdmin.Impuesto := GridImpuestos.Cells[2, GridImpuestos.Row];
+  Global.ImpuestosAdmin.TasaOCuota := StrToFloat(GridImpuestos.Cells[4, GridImpuestos.Row]);
 
   LabelImpuestoImpuesto.Caption := Global.ImpuestosAdmin.Impuesto;
   LabelImpuestoTasaOCuota.Caption := FloatToStr(Global.ImpuestosAdmin.TasaOCuota);
+
+end;
+
+procedure TMainF.GridInfoAduaneraClick(Sender: TObject);
+begin
+  Global.InformacionAduanera.Id := StrToInt(GridInfoAduanera.Cells[1, GridInfoAduanera.Row]);
+  LabelNumeroPedimento.Caption  := GridInfoAduanera.Cells[2, GridInfoAduanera.Row];
+end;
+
+procedure TMainF.GridItemsClick(Sender: TObject);
+begin
+  Global.Item.Id_Concepto   := StrToInt(GridItems.Cells[1, GridItems.Row]);
+  Global.Item.ClaveProdServ := GridItems.Cells[2, GridItems.Row];
+  Global.Item.Descripcion   := GridItems.Cells[8, GridItems.Row];
+  Global.Item.Precio        := StrToCurr(GridItems.Cells[7, GridItems.Row]);
+  Global.Item.Unidad        := GridItems.Cells[10, GridItems.Row];
+
+  LabelProdClave.Caption    := Global.Item.ClaveProdServ;
+  LabelProdDesc.Caption     := Global.Item.Descripcion;
+  LabelProdPrecio.Caption   := CurrToStr( Global.Item.Precio);
+  LabelProdUnidad.Caption   := Global.Item.Unidad;
 
 end;
 
@@ -2269,6 +2714,8 @@ begin
   GetAllLugExp;
   GetAllMonedas;
   GetAllTimbres;
+  GetAllInformacionAduanera;
+  GetAllArticulos;
 
 end;
 
@@ -2342,6 +2789,11 @@ end;
 procedure TMainF.PanelImpuestosClick(Sender: TObject);
 begin
   ShowTab(TabSheetImpuestos);
+end;
+
+procedure TMainF.PanelInfoAduaneraClick(Sender: TObject);
+begin
+  ShowTab(TabSheetInformacionAduanera);
 end;
 
 procedure TMainF.PanelLugarExpedicionClick(Sender: TObject);

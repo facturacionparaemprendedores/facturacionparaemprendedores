@@ -14,17 +14,15 @@ type
   public
     { Public declarations }
     Id : Integer;
-    Base: string;
     Impuesto: string;
     TipoFactor: string;
     TasaOCuota: Double;
-    Importe: Double;
     Id_Emp: Integer;
 
     Qry: TQry;
 
-    procedure New(Base: string; Impuesto: string; TipoFactor: string; TasaOCuota: Double; Importe: Double);
-    procedure Update(Base: string; Impuesto: string; TipoFactor: string; TasaOCuota: Double; Importe: Double);
+    procedure New(Impuesto: string; TipoFactor: string; TasaOCuota: Double);
+    procedure Update(Impuesto: string; TipoFactor: string; TasaOCuota: Double);
     procedure Delete;
     procedure GetAll();
     procedure GetByID(Id:Integer);
@@ -39,23 +37,21 @@ type
 implementation
 
 
-procedure TImpuestosAdmin.New(Base: string; Impuesto: string; TipoFactor: string; TasaOCuota: Double; Importe: Double);
+procedure TImpuestosAdmin.New(Impuesto: string; TipoFactor: string; TasaOCuota: Double);
 begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
   Qry.Querry.SQL.Add('INSERT INTO IMPUESTOS ');
   Qry.Querry.SQL.Add('(');
-  Qry.Querry.SQL.Add(' BASE, IMPUESTO, TIPOFACTOR, TASAOCUOTA, IMPORTE, ID_EMP');
+  Qry.Querry.SQL.Add(' IMPUESTO, TIPOFACTOR, TASAOCUOTA, ID_EMP');
   Qry.Querry.SQL.Add(')');
   Qry.Querry.SQL.Add(' VALUES ');
   Qry.Querry.SQL.Add('(');
-  Qry.Querry.SQL.Add(' :BASE, :IMPUESTO, :TIPOFACTOR, :TASAOCUOTA, :IMPORTE, :ID_EMP');
+  Qry.Querry.SQL.Add(' :IMPUESTO, :TIPOFACTOR, :TASAOCUOTA, :ID_EMP');
   Qry.Querry.SQL.Add(')');
-  Qry.Querry.ParamByName('BASE').AsString := Base;
   Qry.Querry.ParamByName('IMPUESTO').AsString := Impuesto;
   Qry.Querry.ParamByName('TIPOFACTOR').AsString := TipoFactor;
   Qry.Querry.ParamByName('TASAOCUOTA').AsFloat := TasaOCuota;
-  Qry.Querry.ParamByName('IMPORTE').AsFloat := Importe;
   Qry.Querry.ParamByName('ID_EMP').AsInteger := 1;
 
   Qry.Querry.ExecSQL;
@@ -63,20 +59,19 @@ begin
 end;
 
 
-procedure TImpuestosAdmin.Update(Base: string; Impuesto: string; TipoFactor: string; TasaOCuota: Double; Importe: Double);
+procedure TImpuestosAdmin.Update(Impuesto: string; TipoFactor: string; TasaOCuota: Double);
 begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
   Qry.Querry.SQL.Add('UPDATE IMPUESTOS ');
   Qry.Querry.SQL.Add('SET ');
-  Qry.Querry.SQL.Add('BASE = :BASE, IMPUESTO = :IMPUESTO, TIPOFACTOR = :TIPOFACTOR, TASAOCUOTA = :TASAOCUOTA, IMPORTE = :IMPORTE, ID_EMP = :ID_EMP');
+  Qry.Querry.SQL.Add(' IMPUESTO = :IMPUESTO, TIPOFACTOR = :TIPOFACTOR, TASAOCUOTA = :TASAOCUOTA, ID_EMP = :ID_EMP');
   Qry.Querry.SQL.Add(' WHERE ID = :ID');
 
-  Qry.Querry.ParamByName('BASE').AsString := Base;
+
   Qry.Querry.ParamByName('IMPUESTO').AsString := Impuesto;
   Qry.Querry.ParamByName('TIPOFACTOR').AsString := TipoFactor;
   Qry.Querry.ParamByName('TASAOCUOTA').AsFloat := TasaOCuota;
-  Qry.Querry.ParamByName('IMPORTE').AsFloat := Importe;
   Qry.Querry.ParamByName('ID_EMP').AsInteger := 1;
 
   Qry.Querry.ParamByName('ID').AsInteger := Id;
@@ -100,7 +95,7 @@ procedure TImpuestosAdmin.GetAll;
 begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
-  Qry.Querry.SQL.Add('SELECT ID, BASE, IMPUESTO, TIPOFACTOR, TASAOCUOTA, IMPORTE, ID_EMP ');
+  Qry.Querry.SQL.Add('SELECT ID, IMPUESTO, TIPOFACTOR, TASAOCUOTA, ID_EMP ');
   Qry.Querry.SQL.Add(' FROM IMPUESTOS ');
   Qry.Querry.Open();
 
@@ -110,7 +105,7 @@ procedure TImpuestosAdmin.GetByID(Id:Integer);
 begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
-  Qry.Querry.SQL.Add('SELECT ID, BASE, IMPUESTO, TIPOFACTOR, TASAOCUOTA, IMPORTE, ID_EMP');
+  Qry.Querry.SQL.Add('SELECT ID, IMPUESTO, TIPOFACTOR, TASAOCUOTA, ID_EMP');
   Qry.Querry.SQL.Add(' FROM IMPUESTOS ');
   Qry.Querry.SQL.Add(' WHERE ID = :ID');
 
@@ -119,11 +114,9 @@ begin
   Qry.Querry.Open();
 
   Id := Qry.Querry.FieldByName('ID').AsInteger;
-  Base := Qry.Querry.FieldByName('BASE').AsString;
   Impuesto := Qry.Querry.FieldByName('IMPUESTO').AsString;
   TipoFactor := Qry.Querry.FieldByName('TIPOFACTOR').AsString;
   TasaOCuota := Qry.Querry.FieldByName('TASAOCUOTA').AsFloat;
-  Importe:= Qry.Querry.FieldByName('IMPORTE').AsFloat;
   Id_Emp := Qry.Querry.FieldByName('ID_EMP').AsInteger;
 
 end;
@@ -132,7 +125,7 @@ procedure TImpuestosAdmin.GetByImpuesto(Impuesto: string);
 begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
-  Qry.Querry.SQL.Add('SELECT ID, BASE, IMPUESTO, TIPOFACTOR, TASAOCUOTA, IMPORTE, ID_EMP ');
+  Qry.Querry.SQL.Add('SELECT ID, IMPUESTO, TIPOFACTOR, TASAOCUOTA, ID_EMP ');
   Qry.Querry.SQL.Add(' FROM IMPUESTOS ');
   Qry.Querry.SQL.Add(' WHERE IMPUESTO LIKE :IMPUESTO' );
 
@@ -141,11 +134,9 @@ begin
   Qry.Querry.Open();
 
   Id := Qry.Querry.FieldByName('ID').AsInteger;
-  Base := Qry.Querry.FieldByName('BASE').AsString;
   Impuesto := Qry.Querry.FieldByName('IMPUESTO').AsString;
   TipoFactor := Qry.Querry.FieldByName('TIPOFACTOR').AsString;
   TasaOCuota := Qry.Querry.FieldByName('TASAOCUOTA').AsFloat;
-  Importe:= Qry.Querry.FieldByName('IMPORTE').AsFloat;
   Id_Emp := Qry.Querry.FieldByName('ID_EMP').AsInteger;
 
 end;
@@ -154,7 +145,7 @@ procedure TImpuestosAdmin.GetbyClave(Clave: string);
 begin
   Qry.Querry.Close;
   Qry.Querry.SQL.Clear;
-  Qry.Querry.SQL.Add('SELECT ID, BASE, IMPUESTO, TIPOFACTOR, TASAOCUOTA, IMPORTE, ID_EMP');
+  Qry.Querry.SQL.Add('SELECT ID, IMPUESTO, TIPOFACTOR, TASAOCUOTA, ID_EMP');
   Qry.Querry.SQL.Add(' FROM IMPUESTOS ');
   Qry.Querry.SQL.Add(' WHERE NOMBRE LIKE :NOMBRE' );
 
@@ -163,11 +154,9 @@ begin
   Qry.Querry.Open();
 
   Id := Qry.Querry.FieldByName('ID').AsInteger;
-  Base := Qry.Querry.FieldByName('BASE').AsString;
   Impuesto := Qry.Querry.FieldByName('IMPUESTO').AsString;
   TipoFactor := Qry.Querry.FieldByName('TIPOFACTOR').AsString;
   TasaOCuota := Qry.Querry.FieldByName('TASAOCUOTA').AsFloat;
-  Importe:= Qry.Querry.FieldByName('IMPORTE').AsFloat;
   Id_Emp := Qry.Querry.FieldByName('ID_EMP').AsInteger;
 
 end;

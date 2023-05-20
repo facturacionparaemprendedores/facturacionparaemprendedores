@@ -57,7 +57,11 @@ uses
   TimbresAdmin in 'classes\TimbresAdmin.pas',
   Global in 'shared\Global.pas',
   TimbreSeleccionaPac in 'timbres\TimbreSeleccionaPac.pas' {TimbreSeleccionaPacF},
-  ItemSelecImpU in 'items\ItemSelecImpU.pas' {ItemSelecImpF};
+  ItemSelecImpU in 'items\ItemSelecImpU.pas' {ItemSelecImpF},
+  InformacionAduanera in 'informacionaduanera\InformacionAduanera.pas',
+  InformacionAduaneraEdita in 'informacionaduanera\InformacionAduaneraEdita.pas' {InformacionAduaneraEditaF},
+  InformacionAduaneraRegistra in 'informacionaduanera\InformacionAduaneraRegistra.pas' {InformacionAduaneraRegistraF},
+  ItemSelecInfoAduanera in 'items\ItemSelecInfoAduanera.pas' {ItemSelecInfoAduaneraF};
 
 {$R *.res}
 
@@ -100,6 +104,9 @@ begin
   Application.CreateForm(TMonedaEditaF, MonedaEditaF);
   Application.CreateForm(TTimbreSeleccionaPacF, TimbreSeleccionaPacF);
   Application.CreateForm(TItemSelecImpF, ItemSelecImpF);
+  Application.CreateForm(TInformacionAduaneraEditaF, InformacionAduaneraEditaF);
+  Application.CreateForm(TInformacionAduaneraRegistraF, InformacionAduaneraRegistraF);
+  Application.CreateForm(TItemSelecInfoAduaneraF, ItemSelecInfoAduaneraF);
   Application.Run;
 end.
 

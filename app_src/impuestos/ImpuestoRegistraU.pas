@@ -13,18 +13,14 @@ type
     PanelMiddle: TPanel;
     PanelBottom: TPanel;
     GroupBoxImpuestos: TGroupBox;
-    Label4: TLabel;
     Label3: TLabel;
     BuscarRegistra: TButton;
     EditImpuestoImpuesto: TEdit;
-    EditImpuestoBase: TEdit;
     ButtonCancelar: TButton;
     Label1: TLabel;
     EditImpuestoTipoOFactor: TEdit;
     Label2: TLabel;
     EditImpuestoTasaOCuota: TEdit;
-    Label5: TLabel;
-    EditImpuestoImporte: TEdit;
     procedure ButtonCancelarClick(Sender: TObject);
     procedure BuscarRegistraClick(Sender: TObject);
   private
@@ -42,9 +38,10 @@ implementation
 
 procedure TImpuestoRegistraF.BuscarRegistraClick(Sender: TObject);
 begin
-  Global.ImpuestosAdmin.New(EditImpuestoBase.Text, EditImpuestoImpuesto.Text,
-    EditImpuestoTipoOFactor.Text, StrToFloat(EditImpuestoTasaOCuota.Text),
-    StrToFloat(EditImpuestoImporte.Text));
+  Global.ImpuestosAdmin.New(
+    EditImpuestoImpuesto.Text,
+    EditImpuestoTipoOFactor.Text,
+    StrToFloat(EditImpuestoTasaOCuota.Text));
 
   Close;
 end;

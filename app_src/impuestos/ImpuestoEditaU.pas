@@ -14,17 +14,13 @@ type
     PanelBottom: TPanel;
     ButtonCancelar: TButton;
     GroupBoxImpuestos: TGroupBox;
-    Label4: TLabel;
     Label3: TLabel;
     Label1: TLabel;
     Label2: TLabel;
-    Label5: TLabel;
     ButtonGuardar: TButton;
     EditImpuestoImpuesto: TEdit;
-    EditImpuestoBase: TEdit;
     EditImpuestoTipoOFactor: TEdit;
     EditImpuestoTasaOCuota: TEdit;
-    EditImpuestoImporte: TEdit;
     procedure ButtonCancelarClick(Sender: TObject);
     procedure ButtonGuardarClick(Sender: TObject);
     procedure Load();
@@ -48,9 +44,10 @@ end;
 
 procedure TImpuestoEditaF.ButtonGuardarClick(Sender: TObject);
 begin
-  Global.ImpuestosAdmin.Update(EditImpuestoBase.Text, EditImpuestoImpuesto.Text,
-    EditImpuestoTipoOFactor.Text, StrToFloat(EditImpuestoTasaOCuota.Text),
-    StrToFloat(EditImpuestoImporte.Text));
+  Global.ImpuestosAdmin.Update(
+  EditImpuestoImpuesto.Text,
+  EditImpuestoTipoOFactor.Text,
+  StrToFloat(EditImpuestoTasaOCuota.Text));
 
   Close;
 end;
@@ -59,11 +56,10 @@ procedure TImpuestoEditaF.Load();
 begin
   Global.ImpuestosAdmin.GetByID(Global.ImpuestosAdmin.Id);
 
-  EditImpuestoBase.Text := Global.ImpuestosAdmin.Base;
   EditImpuestoImpuesto.Text := Global.ImpuestosAdmin.Impuesto;
   EditImpuestoTipoOFactor.Text := Global.ImpuestosAdmin.TipoFactor;
   EditImpuestoTasaOCuota.Text := FloatToStr(Global.ImpuestosAdmin.TasaOCuota);
-  EditImpuestoImporte.Text := FloatToStr(Global.ImpuestosAdmin.Importe);
+
 end;
 
 end.

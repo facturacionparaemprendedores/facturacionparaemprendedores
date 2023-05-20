@@ -3,7 +3,7 @@ object ImpuestoEditaF: TImpuestoEditaF
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Impuesto Edita'
-  ClientHeight = 412
+  ClientHeight = 308
   ClientWidth = 510
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,12 +17,12 @@ object ImpuestoEditaF: TImpuestoEditaF
     Left = 0
     Top = 0
     Width = 510
-    Height = 412
+    Height = 308
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 935
-    ExplicitHeight = 278
+    ExplicitWidth = 500
+    ExplicitHeight = 394
     object PanelTop: TPanel
       Left = 0
       Top = 0
@@ -31,119 +31,90 @@ object ImpuestoEditaF: TImpuestoEditaF
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 935
+      ExplicitWidth = 500
     end
     object PanelMiddle: TPanel
       Left = 0
       Top = 57
       Width = 510
-      Height = 280
+      Height = 199
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 935
-      ExplicitHeight = 146
+      ExplicitWidth = 500
+      ExplicitHeight = 262
       object GroupBoxImpuestos: TGroupBox
         Left = 15
         Top = 30
         Width = 473
-        Height = 224
+        Height = 155
         Caption = 'Impuesto'
         TabOrder = 0
-        object Label4: TLabel
-          Left = 24
-          Top = 35
-          Width = 27
-          Height = 15
-          Caption = 'Base:'
-        end
         object Label3: TLabel
           Left = 24
-          Top = 64
+          Top = 31
           Width = 53
           Height = 15
           Caption = 'Impuesto:'
         end
         object Label1: TLabel
           Left = 24
-          Top = 98
+          Top = 65
           Width = 73
           Height = 15
           Caption = 'Tipo o Factor:'
         end
         object Label2: TLabel
           Left = 24
-          Top = 136
+          Top = 103
           Width = 71
           Height = 15
           Caption = 'Tasa o Cuota:'
         end
-        object Label5: TLabel
-          Left = 24
-          Top = 176
-          Width = 45
-          Height = 15
-          Caption = 'Importe:'
-        end
         object ButtonGuardar: TButton
-          Left = 325
-          Top = 26
+          Left = 317
+          Top = 34
           Width = 132
           Height = 25
           Caption = 'Guardar'
-          TabOrder = 5
+          TabOrder = 3
           OnClick = ButtonGuardarClick
         end
         object EditImpuestoImpuesto: TEdit
           Left = 120
-          Top = 61
-          Width = 161
-          Height = 23
-          TabOrder = 1
-        end
-        object EditImpuestoBase: TEdit
-          Left = 120
-          Top = 27
+          Top = 28
           Width = 161
           Height = 23
           TabOrder = 0
         end
         object EditImpuestoTipoOFactor: TEdit
           Left = 120
-          Top = 95
+          Top = 62
           Width = 161
           Height = 23
-          TabOrder = 2
+          TabOrder = 1
         end
         object EditImpuestoTasaOCuota: TEdit
           Left = 120
-          Top = 133
+          Top = 100
           Width = 161
           Height = 23
-          TabOrder = 3
-        end
-        object EditImpuestoImporte: TEdit
-          Left = 120
-          Top = 173
-          Width = 161
-          Height = 23
-          TabOrder = 4
+          TabOrder = 2
         end
       end
     end
     object PanelBottom: TPanel
       Left = 0
-      Top = 337
+      Top = 256
       Width = 510
-      Height = 75
+      Height = 52
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitTop = 203
-      ExplicitWidth = 935
+      ExplicitTop = 360
       object ButtonCancelar: TButton
-        Left = 405
-        Top = 24
+        Left = 413
+        Top = 16
         Width = 75
         Height = 25
         Caption = 'Cancelar'
