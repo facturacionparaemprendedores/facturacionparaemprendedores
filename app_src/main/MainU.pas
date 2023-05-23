@@ -2024,8 +2024,19 @@ end;
 
 procedure TMainF.ButtonItemEliminaClick(Sender: TObject);
 begin
-//
-  GetAllArticulos;
+
+  if Global.Item.Id_Concepto <> 0 then
+  begin
+
+    Global.Item.Delete(Global.Item.Id_Concepto);
+    GetAllArticulos;
+  end
+  else
+  begin
+    ShowMessage('Selecciona un Articulo a Eliminar');
+  end;
+
+
 end;
 
 procedure TMainF.ButtonEliminarClick(Sender: TObject);

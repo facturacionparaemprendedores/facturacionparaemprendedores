@@ -294,6 +294,8 @@
             <Form>ItemSelecInfoAduaneraF</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="classes\Factura.pas"/>
+        <DCCReference Include="classes\FacturaCFDI40.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

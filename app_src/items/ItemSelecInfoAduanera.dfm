@@ -3,8 +3,8 @@ object ItemSelecInfoAduaneraF: TItemSelecInfoAduaneraF
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Concepto Seleccionar Informacion Aduanera Numero de Pedimento'
-  ClientHeight = 685
-  ClientWidth = 926
+  ClientHeight = 789
+  ClientWidth = 754
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,8 +16,8 @@ object ItemSelecInfoAduaneraF: TItemSelecInfoAduaneraF
   object Panel70: TPanel
     Left = 0
     Top = 0
-    Width = 926
-    Height = 685
+    Width = 754
+    Height = 789
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
@@ -26,7 +26,7 @@ object ItemSelecInfoAduaneraF: TItemSelecInfoAduaneraF
     object Panel71: TPanel
       Left = 0
       Top = 0
-      Width = 926
+      Width = 754
       Height = 281
       Align = alTop
       BevelOuter = bvNone
@@ -35,7 +35,7 @@ object ItemSelecInfoAduaneraF: TItemSelecInfoAduaneraF
       object Panel72: TPanel
         Left = 0
         Top = 0
-        Width = 926
+        Width = 754
         Height = 281
         Align = alClient
         TabOrder = 0
@@ -43,7 +43,7 @@ object ItemSelecInfoAduaneraF: TItemSelecInfoAduaneraF
         object Panel73: TPanel
           Left = 1
           Top = 1
-          Width = 924
+          Width = 752
           Height = 279
           Align = alClient
           BevelOuter = bvNone
@@ -52,8 +52,8 @@ object ItemSelecInfoAduaneraF: TItemSelecInfoAduaneraF
           object GroupBox17: TGroupBox
             Left = 18
             Top = 50
-            Width = 783
-            Height = 143
+            Width = 663
+            Height = 119
             Caption = 'Informacion Aduanera'
             TabOrder = 0
             object Label65: TLabel
@@ -87,14 +87,14 @@ object ItemSelecInfoAduaneraF: TItemSelecInfoAduaneraF
             object ButtonBuscar: TButton
               Left = 386
               Top = 26
-              Width = 135
+              Width = 103
               Height = 25
               Caption = 'Buscar'
               TabOrder = 1
               OnClick = ButtonBuscarClick
             end
             object ButtonUsar: TButton
-              Left = 576
+              Left = 504
               Top = 26
               Width = 129
               Height = 25
@@ -109,39 +109,35 @@ object ItemSelecInfoAduaneraF: TItemSelecInfoAduaneraF
     object Panel75: TPanel
       Left = 0
       Top = 281
-      Width = 926
-      Height = 329
+      Width = 754
+      Height = 453
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
       ExplicitWidth = 916
       ExplicitHeight = 311
       object GridInfoAduanera: TStringGrid
-        Left = 0
+        Left = 19
         Top = 0
-        Width = 926
-        Height = 329
-        Align = alClient
+        Width = 712
+        Height = 417
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goFixedRowDefAlign]
         TabOrder = 0
         OnClick = GridInfoAduaneraClick
-        ExplicitWidth = 916
-        ExplicitHeight = 311
       end
     end
     object Panel76: TPanel
       Left = 0
-      Top = 610
-      Width = 926
-      Height = 75
+      Top = 734
+      Width = 754
+      Height = 55
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitTop = 592
-      ExplicitWidth = 916
+      ExplicitTop = 630
       object ButtonCancelar: TButton
-        Left = 712
-        Top = 32
+        Left = 656
+        Top = 6
         Width = 75
         Height = 25
         Caption = 'Cancelar'

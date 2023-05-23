@@ -61,7 +61,9 @@ uses
   InformacionAduanera in 'informacionaduanera\InformacionAduanera.pas',
   InformacionAduaneraEdita in 'informacionaduanera\InformacionAduaneraEdita.pas' {InformacionAduaneraEditaF},
   InformacionAduaneraRegistra in 'informacionaduanera\InformacionAduaneraRegistra.pas' {InformacionAduaneraRegistraF},
-  ItemSelecInfoAduanera in 'items\ItemSelecInfoAduanera.pas' {ItemSelecInfoAduaneraF};
+  ItemSelecInfoAduanera in 'items\ItemSelecInfoAduanera.pas' {ItemSelecInfoAduaneraF},
+  Factura in 'classes\Factura.pas',
+  FacturaCFDI40 in 'classes\FacturaCFDI40.pas';
 
 {$R *.res}
 

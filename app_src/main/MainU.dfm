@@ -297,7 +297,7 @@ object MainF: TMainF
         Top = 1
         Width = 1824
         Height = 1093
-        ActivePage = TabSheetItems
+        ActivePage = TabSheetFacturas
         Align = alClient
         TabOrder = 0
         ExplicitWidth = 1814
@@ -1967,8 +1967,8 @@ object MainF: TMainF
                   BevelOuter = bvNone
                   TabOrder = 0
                   object Label21: TLabel
-                    Left = 19
-                    Top = 60
+                    Left = 17
+                    Top = 53
                     Width = 64
                     Height = 13
                     Caption = 'Razon Social:'
@@ -1981,46 +1981,46 @@ object MainF: TMainF
                     Caption = 'R.F.C.:'
                   end
                   object Edit1: TEdit
-                    Left = 155
+                    Left = 100
                     Top = 17
                     Width = 398
                     Height = 21
                     TabOrder = 0
                   end
                   object Edit2: TEdit
-                    Left = 155
-                    Top = 57
+                    Left = 100
+                    Top = 50
                     Width = 398
                     Height = 21
                     TabOrder = 1
                   end
                   object ButtonBuscarPorRFC: TButton
-                    Left = 624
-                    Top = 12
-                    Width = 249
-                    Height = 35
+                    Left = 520
+                    Top = 15
+                    Width = 145
+                    Height = 25
                     Caption = 'Buscar Por R.F.C.'
                     TabOrder = 2
                   end
                   object ButtonBuscarPorRazSoc: TButton
-                    Left = 624
-                    Top = 53
-                    Width = 249
-                    Height = 35
+                    Left = 520
+                    Top = 46
+                    Width = 145
+                    Height = 25
                     Caption = 'Buscar por Razon Social'
                     TabOrder = 3
                   end
                   object ButtonVisualizar: TButton
-                    Left = 624
-                    Top = 120
-                    Width = 249
+                    Left = 704
+                    Top = 15
+                    Width = 145
                     Height = 25
                     Caption = 'Visualizar'
                     TabOrder = 4
                   end
                   object GroupBox2: TGroupBox
                     Left = 19
-                    Top = 144
+                    Top = 104
                     Width = 870
                     Height = 131
                     Caption = 'Datos de la Factura'
